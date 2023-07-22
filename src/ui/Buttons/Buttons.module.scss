@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.mainBtn {
+  padding: 12px 24px;
+  background-color: $primary-btn-color;
+  border: none;
+  border-radius: 15px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $secondary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+}
+
+.secondaryBtn {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 1px solid $primary-btn-color;
+  border-radius: 15px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $primary-btn-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $primary-accent-color;
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+}

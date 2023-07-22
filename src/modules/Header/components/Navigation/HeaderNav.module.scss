@@ -1,0 +1,60 @@
+@import '../../../../styles/variables.scss';
+
+.navList {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  align-items: center;
+
+  > * + * {
+    margin-left: 15px;
+  }
+
+  @media #{$laptop} {
+    display: flex;
+  }
+
+  @media #{$desktop} {
+    > * + * {
+      margin-left: 30px;
+    }
+  }
+}
+
+.navLink {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: $primary-font;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus,
+  &:global(.active) {
+    color: $primary-accent-color;
+  }
+}
+
+.navBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    color: $primary-accent-color;
+  }
+
+  > * + * {
+    margin-left: 3px;
+  }
+}

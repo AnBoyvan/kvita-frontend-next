@@ -1,0 +1,73 @@
+//----------------------COLORS----------------------//
+// html[data-theme='light']
+.light {
+  --primary-bg-color: #fdf6fa;
+  // --secondary-bg-color: ;
+  --modal-bg-color: #ffebf6;
+  --primary-text-color: #3f3038;
+  --secondary-text-color: #fdf6fa;
+  --primary-btn-color: #f361af;
+  // --secondary-btn-color: ;
+  --primary-accent-color: #fdaed8;
+  // --secondary-accent-color: ;
+  --dropdown-menu-color: #ffebf6;
+  // --switcher-color: #efefef;
+  --error-color: #ff0000;
+  --valid-color: #228b22;
+}
+
+// html[data-theme='dark']
+.dark {
+  --primary-bg-color: #2e2828;
+  // --secondary-bg-color: ;
+  --modal-bg-color: #333131;
+  --primary-text-color: #fdf6fa;
+  --secondary-text-color: #2e2828;
+  --primary-btn-color: #f65151;
+  // --secondary-btn-color: ;
+  --primary-accent-color: #f361af;
+  // --secondary-accent-color: ;
+  --dropdown-menu-color: #333131;
+  // --switcher-color: #efefef;
+  --error-color: #ff0000;
+  --valid-color: #228b22;
+}
+
+$primary-bg-color: var(--primary-bg-color);
+// $secondary-bg-color: var(--secondary-bg-color);
+$modal-bg-color: var(--modal-bg-color);
+$primary-text-color: var(--primary-text-color);
+$secondary-text-color: var(--secondary-text-color);
+$primary-btn-color: var(--primary-btn-color);
+// $secondary-btn-color: var(--secondary-btn-color);
+$primary-accent-color: var(--primary-accent-color);
+// $secondary-accent-color: var(--secondary-accent-color);
+$dropdown-menu-color: var(--dropdown-menu-color);
+// $switcher-color: var(--switcher-color);
+$error-color: var(--error-color);
+$valid-color: var(--valid-color);
+//----------------------/COLORS---------------------//
+
+//----------------------MEDIA----------------------//
+$mobile: 'screen and (max-width: 479px)';
+$tablet: 'screen and (min-width: 480px)';
+$laptop: 'screen and (min-width: 768px)';
+$desktop: 'screen and (min-width: 1024px)';
+
+//----------------------/MEDIA---------------------//
+
+//-------------------DURATIONS-------------------//
+$fast: 200ms;
+$medium: 500ms;
+$slow: 2000ms;
+//-------------------/DURATIONS------------------//
+
+//-------------------FUNCTIONS-------------------//
+$primary-func: cubic-bezier(0.4, 0, 0.2, 1);
+//------------------/FUNCTIONS-------------------//
+
+//---------------------FONTS---------------------//
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Roboto', sans-serif;
+$cursive-font: 'Marck Script', cursive;
+//--------------------/FONTS---------------------//

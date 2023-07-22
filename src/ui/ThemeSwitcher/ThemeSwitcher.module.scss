@@ -1,0 +1,59 @@
+@import '../../styles/variables.scss';
+
+.switcher {
+  position: relative;
+  display: flex;
+  line-height: 0;
+  height: 20px;
+}
+
+.switcherLabel {
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 20px;
+  position: relative;
+  display: block;
+  background-color: #babab8;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.68) inset;
+  cursor: pointer;
+  transition: all $fast $primary-func;
+
+  &::after {
+    content: '\2600';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a3a3a;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 18px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    transition: all $fast $primary-func;
+    z-index: 1;
+  }
+}
+
+.switcherInput:checked + .switcherLabel {
+  content: '\263E';
+  background-color: #fdaed8;
+}
+
+.switcherInput {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.switcherInput:checked + .switcherLabel::after {
+  content: '\263E';
+  color: #fff;
+  left: 49px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
