@@ -1,5 +1,21 @@
 @import '../../styles/variables.scss';
 
+.closeModalBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
 .mainBtn {
   padding: 12px 24px;
   background-color: $primary-btn-color;
