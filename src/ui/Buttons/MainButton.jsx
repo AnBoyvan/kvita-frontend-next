@@ -1,7 +1,5 @@
 import styles from './Buttons.module.scss';
 
-import React from 'react';
-
 const MainButton = ({ children, onClick }) => {
   return (
     <button

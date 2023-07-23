@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  background: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus {
+    outline: none;
+    border: 2px solid $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.inputError {
+  outline: none;
+  border: 2px solid $error-color;
+}
+
+.inputValid {
+  outline: none;
+  border: 2px solid $valid-color;
+}
+
+.label {
+  position: absolute;
+  left: 15px;
+  color: $primary-text-color;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all $fast $primary-func;
+}
+
+.input:focus ~ .label {
+  transform: translateY(-50%);
+  background-color: $modal-bg-color;
+  padding: 0 5px;
+  color: $primary-accent-color;
+}
+
+.labelValid {
+  transform: translateY(-50%);
+  background-color: $modal-bg-color;
+  padding: 0 5px;
+  color: $valid-color;
+}
+
+.labelError {
+  transform: translateY(-50%);
+  background-color: $modal-bg-color;
+  padding: 0 5px;
+  color: $error-color;
+}
+
+.error {
+  position: absolute;
+  bottom: -12px;
+  left: 15px;
+  font-size: 10px;
+  color: $error-color;
+}
+
+.passwordToggle {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d3d3d3;
+}

@@ -1,13 +1,14 @@
 import Logo from '@/ui/Logo/Logo';
 import styles from './Header.module.scss';
 import { Icon } from '@/ui/Icon/Icon';
-import HeaderNav from './components/Navigation/HeaderNav';
+import HeaderNav from './components/HeaderNav/HeaderNav';
 import { useAuth } from '@/hooks/useAuth';
 import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
 import { ModalContext } from '@/hooks/useModal';
 import { useContext } from 'react';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import Auth from '../Auth/Auth';
+import Link from 'next/link';
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
@@ -32,9 +33,9 @@ const Header = () => {
       />
       <HeaderNav />
       {isLoggedIn ? (
-        <button type="button" className={styles.user}>
+        <Link href="/cabinet" className={styles.user}>
           <Icon id="user" />
-        </button>
+        </Link>
       ) : (
         <button
           type="button"

@@ -1,6 +1,41 @@
 @import '../../styles/variables.scss';
 
 .auth {
+  position: relative;
   width: 100%;
-  padding: 32;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 32px 20px;
+  padding-right: 20px;
+  background-color: $modal-bg-color;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+
+  @media #{$tablet} {
+    max-width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 44px 50px;
+  }
+}
+
+.toggleBtn {
+  padding-top: 20px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    color: $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
 }

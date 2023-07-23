@@ -2,8 +2,8 @@
 
 .closeModalBtn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 18px;
+  right: 18px;
   margin: 0;
   padding: 0;
   border: none;
@@ -13,6 +13,11 @@
 
   &:hover {
     color: $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    top: 24px;
+    right: 24px;
   }
 }
 
@@ -48,6 +53,25 @@
   &:hover,
   &:focus {
     border: 1px solid $primary-accent-color;
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: $primary-btn-color;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $secondary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
     background-color: $primary-accent-color;
     color: $secondary-text-color;
   }
