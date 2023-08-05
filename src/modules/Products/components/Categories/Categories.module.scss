@@ -1,0 +1,45 @@
+@import '../../../../styles/variables.scss';
+
+.filters {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  @media #{$tablet} {
+    margin-top: 40px;
+  }
+
+  @media #{$laptop} {
+    margin-top: 50px;
+  }
+}
+.label {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 1px solid $primary-btn-color;
+  border-radius: 15px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $primary-btn-color;
+  transition: all $fast $primary-func;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &.checked {
+    border: 1px solid $primary-accent-color;
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+}
+
+.input {
+  display: none;
+}

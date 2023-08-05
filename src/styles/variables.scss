@@ -2,7 +2,7 @@
 // html[data-theme='light']
 .light {
   --primary-bg-color: #fdf6fa;
-  // --secondary-bg-color: ;
+  --secondary-bg-color: #ffebf6;
   --modal-bg-color: #ffebf6;
   --primary-text-color: #3f3038;
   --secondary-text-color: #fdf6fa;
@@ -19,7 +19,7 @@
 // html[data-theme='dark']
 .dark {
   --primary-bg-color: #2e2828;
-  // --secondary-bg-color: ;
+  --secondary-bg-color: #333131;
   --modal-bg-color: #333131;
   --primary-text-color: #fdf6fa;
   --secondary-text-color: #2e2828;
@@ -34,7 +34,7 @@
 }
 
 $primary-bg-color: var(--primary-bg-color);
-// $secondary-bg-color: var(--secondary-bg-color);
+$secondary-bg-color: var(--secondary-bg-color);
 $modal-bg-color: var(--modal-bg-color);
 $primary-text-color: var(--primary-text-color);
 $secondary-text-color: var(--secondary-text-color);

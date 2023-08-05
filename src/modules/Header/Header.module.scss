@@ -15,21 +15,22 @@
     padding-right: 32px;
   }
 
-  @media #{$laptop} {
-    // padding-left: 32px;
-    // padding-right: 32px;
-  }
-
   @media #{$desktop} {
     padding-left: 5vw;
     padding-right: 5vw;
   }
 }
 
-.user {
+.btnWrapper {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+}
+
+.headerBtn {
+  position: relative;
   margin: 0;
   padding: 5px;
-  margin-left: auto;
   border: 2px solid $primary-text-color;
   border-radius: 50%;
   background-color: transparent;
@@ -41,6 +42,26 @@
     color: $primary-accent-color;
     border: 2px solid $primary-accent-color;
   }
+}
+
+.count {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary-text-color;
+  background-color: $primary-accent-color;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.zeroCount {
+  display: none;
 }
 
 .themeSwitcher {

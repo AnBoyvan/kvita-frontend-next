@@ -1,0 +1,83 @@
+@import '../../../../styles/variables.scss';
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding-top: 20px;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox input[type='checkbox'] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox .checkmark {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $primary-btn-color;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox input[type='checkbox']:checked + .checkmark {
+  background-color: $primary-accent-color;
+  border-color: $primary-accent-color;
+}
+
+.checkbox input[type='checkbox']:checked + .checkmark:after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: $primary-btn-color;
+  transition: transform 0.2s ease;
+  transform: scale(1);
+}
+
+.checkbox .checkmark:after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: transparent;
+  transform: scale(0);
+  transition: transform 0.2s ease;
+}
+
+.adressInput {
+  font-family: $primary-font;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 10px;
+  color: $primary-text-color;
+  background-color: $primary-bg-color;
+  border-radius: 5px;
+  border: 1px solid $primary-btn-color;
+  outline: none;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $primary-accent-color;
+  }
+}

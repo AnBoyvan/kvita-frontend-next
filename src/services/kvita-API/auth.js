@@ -21,7 +21,9 @@ export const refresh = async () => {
 };
 
 export const verify = async verificationToken => {
-  const response = await instance.get(`/users/verify/${verificationToken}`);
+  const response = await instance.get(
+    `/users/verify/${verificationToken}`
+  );
   return response;
 };
 
@@ -36,9 +38,12 @@ export const changePasswordEmail = async data => {
 };
 
 export const changePassword = async ({ password, passwordToken }) => {
-  const response = await instance.patch(`/users/password/${passwordToken}`, {
-    password,
-  });
+  const response = await instance.patch(
+    `/users/password/${passwordToken}`,
+    {
+      password,
+    }
+  );
   return response;
 };
 

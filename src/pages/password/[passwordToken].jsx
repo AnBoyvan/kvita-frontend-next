@@ -7,10 +7,8 @@ const PasswordChangePage = () => {
   const router = useRouter();
   const { openModal } = useContext(ModalContext);
 
-  const { passwordToken } = router.query;
-
   useEffect(() => {
-    openModal(<ChangePasswordModal token={passwordToken} />);
+    openModal(<ChangePasswordModal />);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

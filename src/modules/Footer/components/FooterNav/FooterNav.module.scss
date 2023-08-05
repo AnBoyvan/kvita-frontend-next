@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.scss';
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.navLink {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f8f8f8;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus,
+  &:global(.active) {
+    color: $primary-accent-color;
+  }
+}

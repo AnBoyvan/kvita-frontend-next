@@ -1,26 +1,22 @@
-import styles from './DropdownMenu.module.scss';
-import navList from '@/data/navigation.json';
-import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useContext } from 'react';
+
+import styles from './DropdownMenu.module.scss';
+import navList from '/public/data/navigation.json';
+import { ModalContext } from '@/hooks/useModal';
 import Logo from '@/ui/Logo/Logo';
 import { Icon } from '@/ui/Icon/Icon';
 import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
-import SearchModal from '@/modules/Header/components/SearchModal/SearchModal';
+import SearchForm from '@/components/SearchModal/SearcModal';
 
 const DropdownMenu = () => {
   const { pathname } = useRouter();
 
-  const { closeModal, openModal } =
-    useContext(ModalContext);
+  const { closeModal, openModal } = useContext(ModalContext);
 
   const handleSearchClick = () => {
-    openModal(<SearchModal action={closeModal} />);
-  };
-
-  const handleCartClick = () => {
-    closeModal();
+    openModal(<SearchForm />);
   };
 
   const links = navList.map(({ title, link }, index) => (
@@ -41,9 +37,7 @@ const DropdownMenu = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <Logo
-          styles={{ display: 'flex', flexDirection: 'row' }}
-        />
+        <Logo styles={{ display: 'flex', flexDirection: 'row' }} />
         <button
           type="button"
           onClick={closeModal}
@@ -62,16 +56,6 @@ const DropdownMenu = () => {
           >
             <Icon id="search" />
             <span>Пошук</span>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            className={styles.navBtn}
-            onClick={handleCartClick}
-          >
-            <Icon id="cart" />
-            <span>Корзина</span>
           </button>
         </li>
       </ul>

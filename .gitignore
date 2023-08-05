@@ -3,6 +3,8 @@
 #Junk
 .vscode/
 .idea/
+.env
+.next/
 
 # dependencies
 /node_modules

@@ -1,17 +1,18 @@
-import styles from './ChangePasswordModal.module.scss';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import { Formik, Form } from 'formik';
-import { useContext } from 'react';
 import { ModalContext } from '@/hooks/useModal';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
-import { useDispatch } from 'react-redux';
 import { changePassword } from '@/redux/auth/auth-operations';
+import CloseModalButton from '@/ui/Buttons/CloseModalButton';
+import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
 import { passwordChangeSchema } from '@/utils/validation/userSchemas';
+import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import { useDispatch } from 'react-redux';
+import styles from './ChangePasswordModal.module.scss';
 
-const ChangePasswordModal = ({ token }) => {
+const ChangePasswordModal = () => {
   const router = useRouter();
+  const { passwordToken } = router.query;
   const dispatch = useDispatch();
   const { closeModal } = useContext(ModalContext);
 
@@ -26,7 +27,7 @@ const ChangePasswordModal = ({ token }) => {
 
   const handleSubmit = (values, { resetForm }) => {
     const password = values.password;
-    dispatch(changePassword({ password, passwordToken: token }));
+    dispatch(changePassword({ password, passwordToken }));
     resetForm();
     router.replace('/');
     closeModal();

@@ -1,5 +1,24 @@
 @import '../../styles/variables.scss';
 
+.cartBtn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background-color: $primary-btn-color;
+  transition: all $fast $primary-func;
+  color: $primary-text-color;
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    background-color: $primary-accent-color;
+  }
+}
+
 .closeModalBtn {
   position: absolute;
   top: 18px;
@@ -18,6 +37,23 @@
   @media #{$tablet} {
     top: 24px;
     right: 24px;
+  }
+}
+
+.likeBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  transition: all $fast $primary-func;
+  color: $primary-btn-color;
+
+  &:hover {
+    scale: 1.2;
   }
 }
 

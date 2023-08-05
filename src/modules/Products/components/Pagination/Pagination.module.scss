@@ -1,0 +1,72 @@
+@import '../../../../styles/variables.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  margin-top: 32px;
+  padding: 20px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: transparent;
+  box-shadow: 5px 7px 18px -1px rgba(0, 0, 0, 0.71);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  list-style: none;
+  gap: 10px;
+
+  @media #{$tablet} {
+    margin-top: 40px;
+  }
+
+  @media #{$laptop} {
+    margin-top: 50px;
+    gap: 20px;
+  }
+}
+
+.paginationLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  background-color: transparent;
+  border-radius: 50%;
+  font-size: 14px;
+  font-family: $primary-font;
+  color: $primary-text-color;
+
+  transition: all $fast $primary-func;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.paginationBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+  //   height: 14px;
+}
+
+.paginationActiveLink {
+  background-color: $primary-accent-color;
+}

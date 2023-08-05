@@ -1,0 +1,64 @@
+@import '../../../../styles/variables.scss';
+
+.title {
+  margin-top: 20px;
+  font-family: $primary-font;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.actionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media #{$laptop} {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.continue {
+  font-size: 16px;
+  color: $primary-btn-color;
+  text-align: center;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.sumWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70px;
+  min-width: 180px;
+  border-radius: 20px;
+  border: 1px solid $primary-btn-color;
+  gap: 10px;
+  padding: 5px;
+}
+
+.sumText {
+  font-size: 12px;
+  color: $primary-btn-color;
+}
+
+.sumCount {
+  font-size: 20px;
+  color: $primary-text-color;
+}

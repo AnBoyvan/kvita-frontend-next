@@ -1,0 +1,38 @@
+@import '../../../../styles/variables.scss';
+
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  margin-top: 32px;
+  gap: 20px;
+
+  @media #{$tablet} {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$laptop} {
+    margin-top: 50px;
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.notFound {
+  text-align: center;
+  display: block;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 20px;
+  color: $primary-text-color;
+  margin-top: 32px;
+
+  @media #{$tablet} {
+    margin-top: 40px;
+  }
+
+  @media #{$laptop} {
+    margin-top: 50px;
+  }
+}

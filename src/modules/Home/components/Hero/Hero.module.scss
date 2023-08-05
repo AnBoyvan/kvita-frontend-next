@@ -1,0 +1,176 @@
+@import '../../../../styles/variables.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 16px;
+  flex-direction: column;
+  align-items: center;
+  background-color: $secondary-bg-color;
+
+  @media #{$tablet} {
+    padding: 40px 32px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  @media #{$laptop} {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+
+  @media #{$desktop} {
+    padding: 50px 5vw;
+  }
+}
+
+.heroWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroTitle {
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 26px;
+
+  @media #{$tablet} {
+    font-size: 30px;
+  }
+}
+
+.heroName {
+  width: 280px;
+  object-fit: contain;
+  padding-top: 10px;
+
+  @media #{$tablet} {
+    width: 320px;
+  }
+}
+
+.heroSlogan {
+  font-family: $cursive-font;
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+
+  @media #{$tablet} {
+    margin-top: 25px;
+    font-size: 36px;
+  }
+}
+
+.heroImg {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  margin-top: 20px;
+
+  @media #{$tablet} {
+    margin-top: 0;
+    max-height: 350px;
+    max-width: 350px;
+  }
+
+  @media #{$laptop} {
+    width: 50%;
+    max-height: 500px;
+    max-width: 500px;
+  }
+}
+
+.productTitle {
+  font-family: $cursive-font;
+  font-weight: 500;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-shadow: $primary-accent-color 5px 0 10px;
+
+  @media #{$tablet} {
+    font-size: 50px;
+  }
+}
+
+.productName {
+  margin-top: 20px;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 26px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    color: $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 30px;
+  }
+}
+
+.productDescr {
+  margin-top: 20px;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+  text-align: center;
+
+  @media #{$tablet} {
+    font-size: 18px;
+  }
+}
+
+.productImg {
+  margin-top: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
+
+  @media #{$tablet} {
+    margin-top: 0;
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  @media #{$laptop} {
+    max-width: 50%;
+    max-height: 500px;
+
+    margin-top: 0;
+  }
+}
+
+.annTitle {
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 40px;
+  text-transform: uppercase;
+  text-shadow: $primary-accent-color 5px 0 10px;
+
+  @media #{$tablet} {
+    font-size: 50px;
+  }
+}
+
+.annMessage {
+  margin-top: 20px;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+  text-align: center;
+
+  @media #{$tablet} {
+    font-size: 18px;
+  }
+}

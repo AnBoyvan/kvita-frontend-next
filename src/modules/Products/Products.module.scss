@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.pageTitle {
+  margin-top: 32px;
+  font-family: $cursive-font;
+  color: $primary-text-color;
+  font-size: 28px;
+
+  @media #{$tablet} {
+    margin-top: 54px;
+    font-size: 32px;
+  }
+
+  @media #{$laptop} {
+    margin-top: 82px;
+    font-size: 44px;
+  }
+}

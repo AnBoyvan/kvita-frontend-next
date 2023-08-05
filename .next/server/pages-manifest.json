@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/password/[passwordToken]": "pages/password/[passwordToken].js",
-  "/verify/[verificationToken]": "pages/verify/[verificationToken].js"
+  "/products": "pages/products.js",
+  "/ordering": "pages/ordering.js"
 }

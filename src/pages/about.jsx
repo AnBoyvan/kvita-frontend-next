@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 const AboutPage = () => {
-  const router = useRouter();
-  console.log('router', router);
-  // console.log('query', query);
+  // const router = useRouter();
 
   return (
     <>

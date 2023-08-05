@@ -1,0 +1,30 @@
+@import '../../../../styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.name {
+  font-size: 24px;
+  font-family: $cursive-font;
+  color: #f8f8f8;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    color: $primary-accent-color;
+  }
+}
+
+.adress {
+  color: #f8f8f8;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    color: $primary-accent-color;
+  }
+}
