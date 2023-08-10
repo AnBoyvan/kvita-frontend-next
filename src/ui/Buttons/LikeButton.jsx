@@ -22,7 +22,7 @@ const LikeButton = ({ id, likes }) => {
     if (isLoggedIn) {
       setLiked(Boolean(likes.includes(user._id)));
     }
-  }, [isLoggedIn, likes, user._id]);
+  }, [isLoggedIn, likes, user?._id]);
 
   return (
     <>

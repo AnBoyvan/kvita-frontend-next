@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import styles from './CustomerInfo.module.scss';
 import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';

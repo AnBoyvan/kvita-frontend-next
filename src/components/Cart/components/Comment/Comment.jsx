@@ -22,7 +22,7 @@ const Comment = ({
       {addComment && (
         <textarea
           type="textarea"
-          name="adress"
+          name="comment"
           className={styles.commentInput}
           value={comment}
           rows="5"

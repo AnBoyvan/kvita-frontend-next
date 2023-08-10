@@ -80,7 +80,11 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(refreshUser.rejected, state => state)
+      .addCase(refreshUser.rejected, state => {
+        state.token = '';
+        state.isLoading = false;
+        state.error = null;
+      })
       .addCase(verify.pending, state => {
         state.isLoading = true;
       })

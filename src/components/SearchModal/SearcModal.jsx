@@ -14,7 +14,7 @@ const SearcModal = () => {
   const [search, setSearch] = useState('');
   const [showList, setShowList] = useState(false);
   const { products, refetchProducts } = useFetchProducts(
-    `search=${search}`
+    `search=${search}&limit=1000`
   );
 
   const initialValues = {
@@ -57,6 +57,7 @@ const SearcModal = () => {
               type="text"
               name="search"
               className={styles.input}
+              autocomplete="off"
               onChange={handleChange}
               value={search}
             ></Field>

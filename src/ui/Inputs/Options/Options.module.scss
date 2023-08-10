@@ -1,0 +1,57 @@
+@import '../../../styles/variables.scss';
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.label {
+  display: inline-block;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 16px;
+  color: $primary-text-color;
+  cursor: pointer;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid $primary-btn-color;
+  transition: all $fast $primary-func;
+}
+
+.input:checked + .label .custom {
+  transform: translateY(-50%) scale(0.9);
+  border: 5px solid $primary-accent-color;
+  color: $primary-accent-color;
+}
+
+.input:checked + .label {
+  color: $primary-accent-color;
+}
+
+.label:hover .custom {
+  transform: translateY(-50%) scale(1.2);
+  border-color: $primary-accent-color;
+  box-shadow: 0 0 10px $primary-accent-color;
+}

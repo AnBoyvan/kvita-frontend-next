@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import contacts from '/public/data/contacts.json';
+import contacts from '@/config/contacts.json';
 
 import styles from './FooterContacts.module.scss';
 import { Icon } from '@/ui/Icon/Icon';

@@ -1,8 +1,14 @@
 import { instance } from './kvita-instance';
 
-export const getAllGalleryImages = async () => {
-  const response = await instance.get('/pictures');
-  return response.data;
+export const getAllGalleryImages = async ({
+  queryKey,
+  pageParam = 1,
+}) => {
+  const tags = queryKey[1];
+  const response = await instance.get(
+    `/pictures?tags=${tags}&page=${pageParam}`
+  );
+  return response.data.result;
 };
 
 export const getGalleryImageById = async _id => {

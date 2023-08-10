@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import navList from '/public/data/navigation.json';
+import navList from '@/config/navigation.json';
 import styles from './FooterNav.module.scss';
 
 const FooterNav = () => {

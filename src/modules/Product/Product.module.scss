@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+
+  @media #{$tablet} {
+    margin-top: 54px;
+  }
+
+  @media #{$laptop} {
+    margin-top: 82px;
+  }
+}
+
+.pageTitle {
+  font-family: $cursive-font;
+  color: $primary-text-color;
+  font-size: 28px;
+
+  @media #{$tablet} {
+    font-size: 32px;
+  }
+
+  @media #{$laptop} {
+    font-size: 44px;
+  }
+}

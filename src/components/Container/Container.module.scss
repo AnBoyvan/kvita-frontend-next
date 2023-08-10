@@ -1,11 +1,13 @@
 @import '../../styles/variables.scss';
 
 .container {
+  position: relative;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 16px;
   padding-bottom: 32px;
+  height: 100%;
 
   @media #{$tablet} {
     padding-left: 32px;

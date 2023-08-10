@@ -1,0 +1,115 @@
+@import '../../../../../styles/variables.scss';
+
+.add {
+  margin-top: 20px;
+}
+.list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+
+  @media #{$tablet} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$laptop} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media #{$desktop} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid $primary-text-color;
+  border-radius: 10px;
+}
+
+.itemText {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.change,
+.delete {
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: none;
+}
+
+.change {
+  margin-left: auto;
+  color: $valid-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.delete {
+  margin-left: 5px;
+  color: $error-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.modalContainer {
+  width: 100%;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 32px;
+  min-width: 200px;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: $secondary-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.modalInput {
+  width: 100%;
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  background: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.modalBtnWrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

@@ -49,18 +49,6 @@ export const useCart = () => {
     );
   };
 
-  // const updateCart = updatedItem => {
-  //   const filteredCart = currentCart.filter(
-  //     item => item.productId !== updatedItem.productId
-  //   );
-  //   const newCart = [...filteredCart, updatedItem];
-  //   dispatch(
-  //     isLoggedIn
-  //       ? update({ cart: newCart })
-  //       : setLocalCart({ items: newCart })
-  //   );
-  // };
-
   const updateCart = updatedItem => {
     const itemIndex = currentCart.findIndex(
       item => item.productId === updatedItem.productId

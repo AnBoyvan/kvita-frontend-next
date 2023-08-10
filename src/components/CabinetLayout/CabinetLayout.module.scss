@@ -1,0 +1,88 @@
+@import '../../styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  min-height: 80vh;
+  padding: 32px 10px;
+  background-color: $secondary-bg-color;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  @media #{$laptop} {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+.userNav,
+.adminNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.adminNav {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #808080;
+}
+
+.navLink {
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid $primary-text-color;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $primary-font;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus,
+  &.active {
+    border: 1px solid $primary-accent-color;
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+
+  @media #{$laptop} {
+    height: 50px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+}
+
+.navIcon {
+  width: 24px;
+}
+
+.navText {
+  width: 100%;
+  display: none;
+  margin-left: 10px;
+
+  @media #{$laptop} {
+    display: block;
+  }
+}
+
+.logoutWrapper {
+  padding-top: 20px;
+  border-top: 1px solid #808080;
+}
+
+.content {
+  width: 100%;
+  padding-left: 20px;
+}

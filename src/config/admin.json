@@ -1,0 +1,19 @@
+{
+  "hero": "product",
+  "slogan": "Для Вас ми зробимо все - від цукерки до торта",
+  "heroTypes": [
+    {
+      "type": "product",
+      "title": "Новинка"
+    },
+    {
+      "type": "hero",
+      "title": "Титульна сторінка"
+    },
+    {
+      "type": "announcement",
+      "title": "Оголошення"
+    }
+  ],
+  "minOrder": 300
+}

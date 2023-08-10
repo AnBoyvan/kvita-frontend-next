@@ -57,6 +57,44 @@
   }
 }
 
+.logoutBtn {
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-btn-color;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: $primary-font;
+  color: $secondary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+
+  @media #{$laptop} {
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 10px;
+  }
+}
+
+.logoutBtnText {
+  display: none;
+  margin-left: 10px;
+
+  @media #{$laptop} {
+    display: block;
+  }
+}
+
 .mainBtn {
   padding: 12px 24px;
   background-color: $primary-btn-color;

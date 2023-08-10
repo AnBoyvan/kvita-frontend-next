@@ -1,0 +1,198 @@
+@import '../../../../styles/variables.scss';
+.product {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media #{$laptop} {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media #{$laptop} {
+    min-width: 50%;
+  }
+}
+
+.mainImageWrapper {
+  position: relative;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  cursor: pointer;
+}
+
+.mainImage {
+  position: relative;
+  border-radius: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 0;
+  padding-top: 100%;
+  cursor: pointer;
+}
+
+.like {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.descrWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+
+  @media #{$desktop} {
+    align-items: flex-start;
+  }
+}
+
+.descr {
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.descrCalories {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.descrCaloriesTitle,
+.descrCaloriesCount {
+  font-weight: 500;
+}
+
+.descrCaloriesElement {
+  font-size: 14px;
+}
+
+.priceWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.price {
+  width: 110px;
+  padding: 15px;
+  border: 1px solid $primary-text-color;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.priceTitle {
+  font-size: 12px;
+  color: $primary-btn-color;
+}
+
+.priceNumber {
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.actionWrapper {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.priceWrapper {
+  width: 110px;
+  padding: 15px;
+  border: 1px solid $primary-text-color;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.priceText {
+  font-size: 12px;
+  color: $primary-btn-color;
+}
+
+.priceCount {
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.quantityWrapper {
+  height: 100%;
+  width: 110px;
+  padding: 15px;
+  border: 1px solid $primary-text-color;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity {
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.quantityBtn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary-btn-color;
+  background: transparent;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+// .cartBtn {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 70px;
+//   height: 70px;
+//   border: none;
+//   padding: 15px 30px;
+//   border-radius: 50%;
+//   background: $main-button-color;
+//   transition: all $fast $primary-func;
+//   line-height: 1;
+//   color: $primary-text-color;
+
+//   &:hover,
+//   &:focus {
+//     scale: 1.1;
+//     background: $active-color;
+//     box-shadow: 0 0 24px 8px $active-color;
+//   }
+// }

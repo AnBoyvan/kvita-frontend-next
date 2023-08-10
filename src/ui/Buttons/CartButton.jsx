@@ -2,7 +2,7 @@ import { Icon } from '../Icon/Icon';
 import styles from './Buttons.module.scss';
 import { useCart } from '@/hooks/useCart';
 
-const CartButton = ({ product }) => {
+const CartButton = ({ product, quantity }) => {
   const { _id, name, price } = product;
   const { addToCart } = useCart();
 
@@ -10,7 +10,7 @@ const CartButton = ({ product }) => {
     const addedProduct = {
       productId: _id,
       productName: name,
-      quantity: 1,
+      quantity: quantity || 1,
       price,
       sum: price * 1,
     };

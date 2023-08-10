@@ -1,0 +1,28 @@
+@import '../../../../styles/variables.scss';
+
+.item {
+  padding: 3px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus,
+  &.checked {
+    border: 1px solid $primary-accent-color;
+    color: $primary-accent-color;
+  }
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  width: 100%;
+  cursor: pointer;
+}

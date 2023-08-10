@@ -1,0 +1,76 @@
+@import '../../../../styles/variables.scss';
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 1px solid $primary-btn-color;
+  border-radius: 15px 35px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: $primary-font;
+  color: $primary-btn-color;
+  transition: all $fast $primary-func;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &.open {
+    border: 1px solid $primary-accent-color;
+    background-color: $primary-accent-color;
+    color: $secondary-text-color;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdownClose {
+  display: none;
+  transition: all $fast $primary-func;
+}
+
+.dropdownOpen {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: $secondary-bg-color;
+  border-radius: 15px;
+  transition: all $fast $primary-func;
+  z-index: 1;
+}
+
+.list {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  @media #{$tablet} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media #{$laptop} {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

@@ -1,5 +1,5 @@
 import styles from './HeaderNav.module.scss';
-import navList from '/public/data/navigation.json';
+import navList from '@/config/navigation.json';
 import { Icon } from '@/ui/Icon/Icon';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import styles from './DropdownMenu.module.scss';
-import navList from '/public/data/navigation.json';
+import navList from '@/config/navigation.json';
 import { ModalContext } from '@/hooks/useModal';
 import Logo from '@/ui/Logo/Logo';
 import { Icon } from '@/ui/Icon/Icon';

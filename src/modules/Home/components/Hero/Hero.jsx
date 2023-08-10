@@ -1,26 +1,24 @@
 import Image from 'next/image';
 import styles from './Hero.module.scss';
-import hero from '/public/data/hero.json';
-import admin from '/public/data/admin.json';
-import newProduct from '/public/data/newProduct.json';
-import announsment from '/public/data/announsment.json';
-import name from '/public/images/logo-name.png';
+import admin from '@/config/admin.json';
+import newProduct from '@/config/newProduct.json';
+import announcement from '@/config/announcement.json';
 import heroImg from '/public/images/heroImg.png';
+import name from '/public/images/logo-name.png';
 import Link from 'next/link';
 
 const MainHero = () => {
-  const { title, slogan } = hero;
   return (
     <>
       <div className={styles.heroWrapper}>
-        <h1 className={styles.heroTitle}>{title}</h1>
+        <h1 className={styles.heroTitle}>Кондитерська студія</h1>
         <Image
           src={name}
           alt="name"
           className={styles.heroName}
           loading="lazy"
         />
-        <p className={styles.heroSlogan}>{slogan}</p>
+        <p className={styles.heroSlogan}>{admin.slogan}</p>
       </div>
 
       <Image
@@ -56,8 +54,8 @@ const Product = () => {
   );
 };
 
-const Announsment = () => {
-  const { title, message, image } = announsment;
+const Announcement = () => {
+  const { title, message, image } = announcement;
   return (
     <>
       <div className={styles.heroWrapper}>
@@ -82,7 +80,7 @@ const Hero = () => {
     <section className={styles.container}>
       {admin.hero === 'product' && <Product />}
       {admin.hero === 'hero' && <MainHero />}
-      {admin.hero === 'announsment' && <Announsment />}
+      {admin.hero === 'announcement' && <Announcement />}
     </section>
   );
 };

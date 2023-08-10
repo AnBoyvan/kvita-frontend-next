@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+
+.gallery {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0 auto;
+}
+
+.image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.navigationBtn {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+
+  color: $primary-btn-color;
+  cursor: pointer;
+  scale: 1;
+
+  &:hover {
+    scale: 1.1;
+    color: $primary-accent-color;
+  }
+}
