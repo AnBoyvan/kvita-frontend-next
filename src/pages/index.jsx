@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
   }
 };
 
-const HomePage = ({ data }) => {
+const HomePage = ({ data = {} }) => {
   const { pie, cake, dessert, other } = data;
 
   return (

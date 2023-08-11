@@ -96,11 +96,11 @@
 }
 
 .mainBtn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background-color: $primary-btn-color;
   border: none;
   border-radius: 15px 35px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   font-family: $primary-font;
   color: $secondary-text-color;
@@ -111,14 +111,19 @@
     background-color: $primary-accent-color;
     color: $secondary-text-color;
   }
+
+  @media #{$tablet} {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
 }
 
 .secondaryBtn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background-color: transparent;
   border: 1px solid $primary-btn-color;
   border-radius: 15px 35px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   font-family: $primary-font;
   color: $primary-btn-color;
@@ -129,6 +134,11 @@
     border: 1px solid $primary-accent-color;
     background-color: $primary-accent-color;
     color: $secondary-text-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+    padding: 12px 24px;
   }
 }
 

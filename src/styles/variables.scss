@@ -11,7 +11,8 @@
   --primary-accent-color: #fdaed8;
   // --secondary-accent-color: ;
   --dropdown-menu-color: #ffebf6;
-  // --switcher-color: #efefef;
+  --placeholder-color: #d3d3d3;
+  --split-color: #808080;
   --error-color: #ff0000;
   --valid-color: #228b22;
 }
@@ -28,7 +29,8 @@
   --primary-accent-color: #f361af;
   // --secondary-accent-color: ;
   --dropdown-menu-color: #333131;
-  // --switcher-color: #efefef;
+  --placeholder-color: #d3d3d3;
+  --split-color: #808080;
   --error-color: #ff0000;
   --valid-color: #228b22;
 }
@@ -43,7 +45,8 @@ $primary-btn-color: var(--primary-btn-color);
 $primary-accent-color: var(--primary-accent-color);
 // $secondary-accent-color: var(--secondary-accent-color);
 $dropdown-menu-color: var(--dropdown-menu-color);
-// $switcher-color: var(--switcher-color);
+$placeholder-color: var(--placeholder-color);
+$split-color: var(--split-color);
 $error-color: var(--error-color);
 $valid-color: var(--valid-color);
 //----------------------/COLORS---------------------//

@@ -1,0 +1,96 @@
+@import '../../../../styles/variables.scss';
+
+.container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 14px;
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.list {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.item {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background-color: $placeholder-color;
+  color: $primary-btn-color;
+
+  @media #{$tablet} {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media #{$laptop} {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.removeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+  color: $error-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.input {
+  display: none;
+}
+
+.modalContainer {
+  width: 100%;
+  position: relative;
+  //   margin-left: 20px;
+  //   margin-right: 20px;
+  padding: 20px;
+  min-width: 200px;
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: $secondary-bg-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media #{$tablet} {
+    padding: 32px;
+  }
+}
+
+.modalBtnWrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  @media #{$tablet} {
+    gap: 30px;
+  }
+}

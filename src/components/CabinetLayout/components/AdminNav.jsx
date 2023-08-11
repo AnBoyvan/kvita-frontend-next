@@ -21,9 +21,9 @@ const AdminNav = () => {
         <div className={styles.navText}>Адміністратор</div>
       </Link>
       <Link
-        href="/cabinet/add"
+        href="/cabinet/create"
         className={
-          pathname === '/cabinet/add'
+          pathname === '/cabinet/create'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }
