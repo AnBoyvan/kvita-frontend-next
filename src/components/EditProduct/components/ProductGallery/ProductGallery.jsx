@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { ModalContext } from '@/hooks/useModal';
 import { Icon } from '@/ui/Icon/Icon';
 import EditGalleryModal from './EditGalleryModal';
+import EditContainer from '../EditContainer/EditContainer';
 
 const ProductGallery = ({ images, setMainImage, id }) => {
   const { openModal, closeModal } = useContext(ModalContext);
@@ -42,8 +43,9 @@ const ProductGallery = ({ images, setMainImage, id }) => {
     </li>
   ));
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Фото:</h2>
+    <EditContainer>
+      {/* <div className={styles.container}> */}
+      {/* <h2 className={styles.title}>Фото</h2> */}
       <ul className={styles.list}>
         {list}
         <button
@@ -54,7 +56,8 @@ const ProductGallery = ({ images, setMainImage, id }) => {
           <Icon id="camera" />
         </button>
       </ul>
-    </div>
+      {/* </div> */}
+    </EditContainer>
   );
 };
 

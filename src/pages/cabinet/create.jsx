@@ -33,7 +33,7 @@ const CreatePage = () => {
             Фото
           </button>
         </div>
-        {newProduct ? <EditProduct isNew={false} /> : 'picture'}
+        {newProduct ? <EditProduct isNew={true} /> : 'picture'}
       </AdminCabinetContainer>
     </>
   );

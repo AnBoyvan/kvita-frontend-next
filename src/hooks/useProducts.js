@@ -1,4 +1,5 @@
 import {
+  addProduct,
   getAllProducts,
   updateFavorites,
 } from '@/services/kvita-API/products';
@@ -32,5 +33,15 @@ export const useMutateProducts = () => {
     },
   });
 
-  return { updFavorites };
+  const { mutate: addNewProduct } = useMutation({
+    mutationFn: data => addProduct(data),
+    onSuccess: () => {
+      Notiflix.Notify.success(`Новий продукт додано`);
+      client.invalidateQueries(['products']);
+    },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
+  });
+
+  return { updFavorites, addNewProduct };
 };

@@ -6,67 +6,99 @@ import SecondaryButton from '@/ui/Buttons/SecondaryButton';
 import { ModalContext } from '@/hooks/useModal';
 import ApproveModal from '../ApproveModal/ApproveModal';
 import ProductGallery from './components/ProductGallery/ProductGallery';
-
-// ['pie', 'cake', 'dessert', 'other'];
+import ProductName from './components/ProductName/ProductName';
+import ProductPrice from './components/ProductPrice/ProductPrice';
+import ProductDescription from './components/ProductDescription/ProductDescription';
+import ProductCategory from './components/ProductCategory/ProductCategory';
+import ProductNutrients from './components/ProductNutrients/ProductNutrients';
+import { validateNewProduct } from '@/utils/helpers/validateProduct';
+import Notiflix from 'notiflix';
+import { useMutateProducts } from '@/hooks/useProducts';
+import { newProductFormData } from '@/utils/helpers/formDataFormating';
 
 const EditProduct = ({ product = {}, isNew }) => {
   const { openModal, closeModal } = useContext(ModalContext);
+  const { addNewProduct } = useMutateProducts();
 
-  const [productName, setProductName] = useState(
-    product.name || null
-  );
+  const [productName, setProductName] = useState(product.name || '');
   const [productPrice, setProductPrice] = useState(
-    Number(product.price) || null
+    Number(product.price) || 0
   );
   const [productDescription, setProductDescription] = useState(
-    product.description || null
+    product.description || ''
   );
   const [productCategory, setProductCategory] = useState(
-    product.category || null
+    product.category || ''
   );
   const [productImage, setProductImage] = useState(null);
+  const [productImages, setProductImages] = useState(null);
+
   const [productImageURL, setProductImageURL] = useState(
-    product.imageURL || null
+    product.imageURL || ''
   );
   const [productImageGallery, setProductImageGallery] = useState(
-    product.imageGallery || null
+    product.imageGallery || []
   );
-  const [productCalories, setProductCalories] = useState(
-    Number(product.calories) || null
-  );
-  const [productProteins, setProductProteins] = useState(
-    Number(product.proteins) || null
-  );
-  const [productFats, setProductFats] = useState(
-    Number(product.fats) || null
-  );
-  const [productCarbs, setProductCarbs] = useState(
-    Number(product.carbohydrates) || null
-  );
+  const [productNutrients, setProductNutrients] = useState({
+    calories: Number(product.calories) || 0,
+    proteins: Number(product.proteins) || 0,
+    fats: Number(product.fats) || 0,
+    carbohydrates: Number(product.carbohydrates) || 0,
+  });
 
-  const submitProduct = () => {
+  const clearForm = () => {
+    setProductName(null);
+    setProductPrice(null);
+    setProductDescription(null);
+    setProductCategory(null);
+    setProductImageURL(null);
+    setProductImageGallery(null);
+    setProductNutrients({
+      calories: 0,
+      proteins: 0,
+      fats: 0,
+      carbohydrates: 0,
+    });
+    closeModal();
+  };
+
+  const submitProduct = async () => {
     const newProduct = {
       name: productName,
       price: productPrice,
       description: productDescription,
       category: productCategory,
       image: productImage,
+      images: productImages,
       imageURL: productImageURL,
       imageGallery: productImageGallery,
-      calories: productCalories,
-      proteins: productProteins,
-      fats: productFats,
-      carbohydrates: productCarbs,
+      calories: productNutrients.calories,
+      proteins: productNutrients.proteins,
+      fats: productNutrients.fats,
+      carbohydrates: productNutrients.carbohydrates,
     };
 
-    console.log(newProduct);
-    // closeModal()
+    const isValid = await validateNewProduct(newProduct);
+
+    if (isValid === true) {
+      const data = newProductFormData(newProduct);
+      await addNewProduct(data);
+    } else {
+      const errors = isValid;
+      errors.forEach(error => {
+        Notiflix.Notify.failure(error);
+      });
+      return;
+    }
+
+    closeModal();
+    clearForm();
   };
 
   const handleSubmit = () => {
     openModal(
       <ApproveModal
-        message="Завершити редагування?"
+        message={isNew ? 'Додати продукт?' : 'Змінити продукт?'}
         approveButton="Так"
         approveAction={submitProduct}
         rejectButton="Ні"
@@ -74,31 +106,18 @@ const EditProduct = ({ product = {}, isNew }) => {
       />
     );
   };
-  // const clearForm = () => {
-  //   setProductName(null);
-  //   setProductPrice(null);
-  //   setProductDescription(null);
-  //   setProductCategory(null);
-  //   setProductImageURL(null);
-  //   setProductImageGallery(null);
-  //   setProductCalories(null);
-  //   setProductProteins(null);
-  //   setProductFats(null);
-  //   setProductCarbs(null);
-  //   closeModal();
-  // };
 
-  // const handleClear = () => {
-  //   openModal(
-  //     <ApproveModal
-  //       message="Очистити?"
-  //       approveButton="Так"
-  //       approveAction={clearForm}
-  //       rejectButton="Ні"
-  //       rejectaction={closeModal}
-  //     />
-  //   );
-  // };
+  const handleClear = () => {
+    openModal(
+      <ApproveModal
+        message="Очистити?"
+        approveButton="Так"
+        approveAction={clearForm}
+        rejectButton="Ні"
+        rejectaction={closeModal}
+      />
+    );
+  };
 
   return (
     <div className={styles.container}>
@@ -111,16 +130,29 @@ const EditProduct = ({ product = {}, isNew }) => {
         <ProductGallery
           images={productImageGallery}
           setMainImage={setProductImageURL}
-          // id={product._id}
-          id="12345"
+          id={product._id}
         />
       )}
+      <ProductName name={productName} setName={setProductName} />
+      <ProductPrice price={productPrice} setPrice={setProductPrice} />
+      <ProductDescription
+        description={productDescription}
+        setDescription={setProductDescription}
+      />
+      <ProductCategory
+        category={productCategory}
+        setCategory={setProductCategory}
+      />
+      <ProductNutrients
+        nutrients={productNutrients}
+        setNutrients={setProductNutrients}
+      />
 
       <div className={styles.btnWrapper}>
-        <MainButton onClick={submitProduct}>Готово</MainButton>
-        {/* <SecondaryButton onClick={handleClear}>
+        <MainButton onClick={handleSubmit}>Готово</MainButton>
+        <SecondaryButton onClick={handleClear}>
           Очистити
-        </SecondaryButton> */}
+        </SecondaryButton>
       </div>
     </div>
   );

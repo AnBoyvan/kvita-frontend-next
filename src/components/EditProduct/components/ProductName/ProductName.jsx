@@ -1,26 +1,18 @@
-import { useState } from 'react';
 import styles from './ProductName.module.scss';
+import EditContainer from '../EditContainer/EditContainer';
 
-const ProductName = ({ value, action }) => {
-  const [newName, setNewName] = useState(value || '');
-
-  const handleChange = () => {
-    setNewName(e.target.value);
-  };
+const ProductName = ({ name, setName }) => {
   return (
-    <div className={styles.wrapper}>
-      <label htmlFor="name" className={styles.label}>
-        Назва
-      </label>
+    <EditContainer title="Назва">
       <input
         name="name"
         type="text"
-        value={newName}
+        value={name}
         required
         className={styles.input}
-        onChange={handleChange}
+        onChange={e => setName(e.target.value)}
       />
-    </div>
+    </EditContainer>
   );
 };
 

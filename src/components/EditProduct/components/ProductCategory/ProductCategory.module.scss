@@ -2,10 +2,11 @@
 
 .input {
   width: 100%;
+  max-width: 200px;
   border: solid 1px $primary-text-color;
   border-radius: 10px;
-  background: none;
   padding: 10px 15px;
+  background-color: $primary-bg-color;
   font-size: 14px;
   color: $primary-text-color;
   transition: all $fast $primary-func;

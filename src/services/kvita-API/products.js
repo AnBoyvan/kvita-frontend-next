@@ -21,8 +21,12 @@ export const getProductById = async _id => {
 };
 
 export const addProduct = async data => {
-  const response = await instance.post('/products', data);
-  return response;
+  const response = await instance.post('/products', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return response.data;
 };
 
 export const updateProductInfo = async data => {

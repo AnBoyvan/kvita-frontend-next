@@ -1,0 +1,54 @@
+@import '../../../../styles/variables.scss';
+
+.table {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  color: $primary-text-color;
+  font-size: 12px;
+
+  & > :not(:last-child) {
+    border-bottom: solid 1px $primary-text-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  border-right: solid 1px $primary-text-color;
+  width: 80px;
+
+  @media #{$tablet} {
+    width: 110px;
+  }
+}
+
+.title,
+.input {
+  padding: 10px 12px;
+}
+
+.input {
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 70px;
+  font-size: 12px;
+
+  &:focus {
+    color: $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+    max-width: 80px;
+  }
+}
