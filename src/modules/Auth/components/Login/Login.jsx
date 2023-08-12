@@ -6,7 +6,7 @@ import { loginSchema } from '@/utils/validation/userSchemas';
 import { ModalContext } from '@/hooks/useModal';
 import { useContext } from 'react';
 import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import ChangePasswordRequest from '../ChangePasswordRequest/ChangePasswordRequest';
 
 const Login = () => {

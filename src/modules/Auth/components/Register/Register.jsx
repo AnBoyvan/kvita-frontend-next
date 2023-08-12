@@ -6,7 +6,7 @@ import { registerSchema } from '@/utils/validation/userSchemas';
 import { useContext } from 'react';
 import { ModalContext } from '@/hooks/useModal';
 import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import RevalidationRequest from '../RevalidationRequest/RevalidationRequest';
 
 const Register = () => {

@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import CabinetLayout from '@/components/CabinetLayout/CabinetLayout';
-import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useAuth } from '@/hooks/useAuth';
 import styles from './AdminCabinetContainer.module.scss';
 
 const adminRoles = ['manager', 'admin', 'superuser'];
@@ -26,6 +27,11 @@ const AdminCabinetContainer = ({ children, title }) => {
       </CabinetLayout>
     </>
   );
+};
+
+AdminCabinetContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
 };
 
 export default AdminCabinetContainer;

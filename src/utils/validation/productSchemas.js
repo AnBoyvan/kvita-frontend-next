@@ -9,6 +9,14 @@ export const addProductSchema = Yup.object().shape({
   category: Yup.string()
     .oneOf([...categories], 'Вкажіть категорію')
     .required('Вкажіть категорію'),
+  image: Yup.mixed()
+    .test('fileFormat', 'Непідтримуваний формат файлу', value => {
+      if (!value) {
+        return false;
+      }
+      return value && value.type.startsWith('image/');
+    })
+    .required('Додайте зображення'),
   imageURL: Yup.string(),
   calories: Yup.number().min(0),
   proteins: Yup.number().min(0),

@@ -1,7 +1,7 @@
 import { ModalContext } from '@/hooks/useModal';
 import { changePassword } from '@/redux/auth/auth-operations';
 import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
 import { passwordChangeSchema } from '@/utils/validation/userSchemas';
 import { Form, Formik } from 'formik';

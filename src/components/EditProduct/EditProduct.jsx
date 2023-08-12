@@ -11,7 +11,7 @@ import ProductPrice from './components/ProductPrice/ProductPrice';
 import ProductDescription from './components/ProductDescription/ProductDescription';
 import ProductCategory from './components/ProductCategory/ProductCategory';
 import ProductNutrients from './components/ProductNutrients/ProductNutrients';
-import { validateNewProduct } from '@/utils/helpers/validateProduct';
+import { useValidateProduct } from '@/hooks/useValidateProduct';
 import Notiflix from 'notiflix';
 import { useMutateProducts } from '@/hooks/useProducts';
 import { newProductFormData } from '@/utils/helpers/formDataFormating';
@@ -19,6 +19,7 @@ import { newProductFormData } from '@/utils/helpers/formDataFormating';
 const EditProduct = ({ product = {}, isNew }) => {
   const { openModal, closeModal } = useContext(ModalContext);
   const { addNewProduct } = useMutateProducts();
+  const { validateNewProduct } = useValidateProduct();
 
   const [productName, setProductName] = useState(product.name || '');
   const [productPrice, setProductPrice] = useState(
@@ -47,12 +48,14 @@ const EditProduct = ({ product = {}, isNew }) => {
   });
 
   const clearForm = () => {
-    setProductName(null);
-    setProductPrice(null);
-    setProductDescription(null);
-    setProductCategory(null);
-    setProductImageURL(null);
-    setProductImageGallery(null);
+    setProductName('');
+    setProductPrice(0);
+    setProductDescription('');
+    setProductCategory('');
+    setProductImage(null);
+    setProductImages(null);
+    setProductImageURL('');
+    setProductImageGallery([]);
     setProductNutrients({
       calories: 0,
       proteins: 0,
@@ -78,7 +81,7 @@ const EditProduct = ({ product = {}, isNew }) => {
       carbohydrates: productNutrients.carbohydrates,
     };
 
-    const isValid = await validateNewProduct(newProduct);
+    const isValid = isNew ? await validateNewProduct(newProduct) : '';
 
     if (isValid === true) {
       const data = newProductFormData(newProduct);
@@ -124,6 +127,7 @@ const EditProduct = ({ product = {}, isNew }) => {
       <ProductImage
         image={productImageURL}
         setImage={setProductImage}
+        setImageURL={setProductImageURL}
         isNew={isNew}
       />
       {!isNew && (

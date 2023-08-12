@@ -1,31 +1,28 @@
-import { useState } from 'react';
 import styles from './ProductImage.module.scss';
 import Image from 'next/image';
 import { Icon } from '@/ui/Icon/Icon';
 
-const ProductImage = ({ image, setImage, isNew }) => {
-  const [selectedImage, setSelectedImage] = useState(image);
-
+const ProductImage = ({ image, setImageURL, setImage, isNew }) => {
   const handleImageChange = e => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
       setImage(selectedFile);
-      setSelectedImage(imageUrl);
+      setImageURL(imageUrl);
     }
   };
 
   const handleImageRemove = () => {
-    setSelectedImage(null);
+    setImageURL('');
     setImage(null);
   };
 
   return (
     <div className={styles.container}>
-      {selectedImage ? (
+      {image ? (
         <div className={styles.productImageWrapper}>
           <Image
-            src={isNew ? selectedImage : image}
+            src={image}
             alt="product image"
             fill={true}
             sizes="(max-width: 300px)"

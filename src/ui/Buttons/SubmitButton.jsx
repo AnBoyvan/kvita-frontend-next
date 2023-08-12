@@ -1,6 +1,6 @@
 import styles from './Buttons.module.scss';
 
-const SubmitBtn = ({ children }) => {
+const SubmitButton = ({ children }) => {
   return (
     <button type="submit" className={styles.submitBtn}>
       {children}
@@ -8,4 +8,4 @@ const SubmitBtn = ({ children }) => {
   );
 };
 
-export default SubmitBtn;
+export default SubmitButton;

@@ -6,7 +6,7 @@ import { requestSchema } from '@/utils/validation/userSchemas';
 import { changePasswordEmail } from '@/redux/auth/auth-operations';
 import { useContext } from 'react';
 import { ModalContext } from '@/hooks/useModal';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import { useDispatch } from 'react-redux';
 
 const ChangePasswordRequest = () => {

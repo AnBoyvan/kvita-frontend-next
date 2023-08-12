@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
 import styles from './CustomerInfo.module.scss';
 import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitBtn';
+import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import { newOrderSchema } from '@/utils/validation/orderSchemas';
 import Link from 'next/link';
 
