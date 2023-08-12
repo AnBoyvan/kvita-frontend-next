@@ -1,13 +1,15 @@
-import styles from './ChangePasswordRequest.module.scss';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import { Formik, Form } from 'formik';
-import { requestSchema } from '@/utils/validation/userSchemas';
-import { changePasswordEmail } from '@/redux/auth/auth-operations';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+
+import { CloseModalButton, SubmitButton } from '@/ui/Buttons';
+import { AuthInput } from '@/ui/Inputs';
+
+import { ModalContext } from '@/hooks/useModal';
+import { changePasswordEmail } from '@/redux/auth/auth-operations';
+import { requestSchema } from '@/utils/validation/userSchemas';
+
+import styles from './ChangePasswordRequest.module.scss';
 
 const ChangePasswordRequest = () => {
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const ChangePasswordRequest = () => {
         {() => (
           <Form className={styles.form}>
             <AuthInput label="Пошта" name="email" type="email" />
-            <SubmitBtn>Змінити пароль</SubmitBtn>
+            <SubmitButton>Змінити пароль</SubmitButton>
           </Form>
         )}
       </Formik>

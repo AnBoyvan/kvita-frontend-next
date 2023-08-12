@@ -1,8 +1,9 @@
 import { useState } from 'react';
+
+import { Login, Register } from './components';
+import { CloseModalButton } from '@/ui/Buttons';
+
 import styles from './Auth.module.scss';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
 
 const Auth = () => {
   const [authToggle, setAuthToggle] = useState('login');

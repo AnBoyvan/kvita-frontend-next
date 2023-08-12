@@ -1,19 +1,21 @@
-import { useAuth } from '@/hooks/useAuth';
-import { ModalContext } from '@/hooks/useModal';
-import { Icon } from '@/ui/Icon/Icon';
-import Logo from '@/ui/Logo/Logo';
-import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import Auth from '../Auth/Auth';
-import styles from './Header.module.scss';
-import DropdownMenu from './components/DropdownMenu/DropdownMenu';
-import HeaderNav from './components/HeaderNav/HeaderNav';
-import useCartItemsTransfer from '@/hooks/useCartItemsTransfer';
-import { getLocalCart } from '@/redux/localCart/localCart-selectors';
 import { useSelector } from 'react-redux';
+
+import { Cart } from '@/components';
+import Auth from '@/modules/Auth/Auth';
+import Icon from '@/ui/Icon/Icon';
+import Logo from '@/ui/Logo/Logo';
+import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
+import { DropdownMenu, HeaderNav } from './components';
+
+import { useAuth } from '@/hooks/useAuth';
+import { ModalContext } from '@/hooks/useModal';
+import useCartItemsTransfer from '@/hooks/useCartItemsTransfer';
 import { getCart } from '@/redux/auth/auth-selectors';
-import Cart from '@/components/Cart/Cart';
+import { getLocalCart } from '@/redux/localCart/localCart-selectors';
+
+import styles from './Header.module.scss';
 
 const Header = () => {
   const { transferItems } = useCartItemsTransfer();

@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+
+import { EditContainer } from '..';
+
 import styles from './ProductNutrients.module.scss';
-import EditContainer from '../EditContainer/EditContainer';
 
 const ProductNutrients = ({ nutrients, setNutrients }) => {
   const { calories, proteins, fats, carbohydrates } = nutrients;
@@ -66,34 +69,18 @@ const ProductNutrients = ({ nutrients, setNutrients }) => {
           </div>
         </div>
       </div>
-      {/* <table className={styles.table}>
-        <tbody className={styles.table}>
-          <tr className={styles.tableRow}>
-            <td className={styles.title}>Калорії</td>
-            <td className={styles.value}>
-              <input
-                type="number"
-                name="calories"
-                value={nutrients.calories}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table> */}
     </EditContainer>
   );
 };
 
-export default ProductNutrients;
+ProductNutrients.propTypes = {
+  nutrients: PropTypes.shape({
+    calories: PropTypes.number.isRequired,
+    proteins: PropTypes.number.isRequired,
+    fats: PropTypes.number.isRequired,
+    carbohydrates: PropTypes.number.isRequired,
+  }).isRequired,
+  setNutrients: PropTypes.func.isRequired,
+};
 
-// <input
-// type="number"
-// value={price}
-// min="0"
-// required
-// className={styles.input}
-// onChange={e => setPrice(e.target.value)}
-// />
-// <span className={styles.currency}>ГРН</span>
+export default ProductNutrients;

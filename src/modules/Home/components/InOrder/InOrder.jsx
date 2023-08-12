@@ -1,5 +1,6 @@
+import { MainLinkButton } from '@/ui/Buttons';
+
 import styles from './InOrder.module.scss';
-import MainLinkButton from '@/ui/Buttons/MainLinkButton';
 
 const InOrder = () => {
   return (

@@ -1,9 +1,12 @@
-import styles from './ProductImages.module.scss';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
-import { Icon } from '@/ui/Icon/Icon';
+import { useState } from 'react';
 
-export const ProductImages = ({ images, name, action }) => {
+import  Icon  from '@/ui/Icon/Icon';
+
+import styles from './ProductImages.module.scss';
+
+const ProductImages = ({ images, name, action }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -58,3 +61,11 @@ export const ProductImages = ({ images, name, action }) => {
     </ul>
   );
 };
+
+ProductImages.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  name: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
+};
+
+export default ProductImages;

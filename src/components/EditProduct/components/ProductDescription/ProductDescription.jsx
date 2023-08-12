@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+
+import { EditContainer } from '..';
+
 import styles from './ProductDescription.module.scss';
-import EditContainer from '../EditContainer/EditContainer';
 
 const ProductDescription = ({ description, setDescription }) => {
   return (
@@ -13,6 +16,11 @@ const ProductDescription = ({ description, setDescription }) => {
       />
     </EditContainer>
   );
+};
+
+ProductDescription.propTypes = {
+  description: PropTypes.string.isRequired,
+  setDescription: PropTypes.func.isRequired,
 };
 
 export default ProductDescription;

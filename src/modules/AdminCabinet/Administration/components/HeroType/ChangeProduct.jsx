@@ -1,15 +1,20 @@
-import { useContext, useState } from 'react';
-import styles from './HeroType.module.scss';
-import { ModalContext } from '@/hooks/useModal';
-import newProduct from '@/config/newProduct.json';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import MainButton from '@/ui/Buttons/MainButton';
-import { updateNewProduct } from '@/services/admin';
-import { useFetchProducts } from '@/hooks/useProducts';
-import { sortData } from '@/utils/helpers/sortData';
-import { Icon } from '@/ui/Icon/Icon';
 import Image from 'next/image';
+import { useContext, useState } from 'react';
+
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
+
+import { ModalContext } from '@/hooks/useModal';
+import { useFetchProducts } from '@/hooks/useProducts';
+import { updateNewProduct } from '@/services/admin';
+import { sortData } from '@/utils/helpers/sortData';
+
+import styles from './HeroType.module.scss';
+import newProduct from '@/config/newProduct.json';
 
 const ChangeProduct = () => {
   const { closeModal } = useContext(ModalContext);

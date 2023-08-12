@@ -8,22 +8,5 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "arrowParens": "avoid",
-  "proseWrap": "always",
-  "importOrder": [
-    "next/(.*)$",
-
-    "<THIRD_PARTY_MODULES>",
-    "^@hooks/(.*)$",
-    "^@redux/(.*)$",
-    "^@utils/(.*)$",
-    "^@services/(.*)$",
-    "^@data/(.*)$",
-    "^@components/(.*)$",
-    "^@modules/(.*)$",
-    "^@ui/(.*)$",
-    "^@styles/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "proseWrap": "always"
 }

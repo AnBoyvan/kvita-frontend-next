@@ -1,16 +1,19 @@
-import { useRouter } from 'next/router';
-import styles from './Reviews.module.scss';
+import PropTypes from 'prop-types';
+import { useContext, useEffect, useState } from 'react';
+import Notiflix from 'notiflix';
+
+import { MainButton } from '@/ui/Buttons';
+import ReviewItem from './ReviewItem';
+import ReviewModal from './ReviewModal';
+
 import {
   useFetchReviews,
   useMutateReviews,
 } from '@/hooks/useReviews';
-import { useContext, useEffect, useState } from 'react';
-import ReviewItem from './ReviewItem';
-import MainButton from '@/ui/Buttons/MainButton';
 import { ModalContext } from '@/hooks/useModal';
 import { useAuth } from '@/hooks/useAuth';
-import ReviewModal from './ReviewModal';
-import Notiflix from 'notiflix';
+
+import styles from './Reviews.module.scss';
 
 const Reviews = ({ id }) => {
   const { openModal, closeModal } = useContext(ModalContext);
@@ -22,8 +25,6 @@ const Reviews = ({ id }) => {
   const { addNewReview } = useMutateReviews();
 
   const [reviewText, setReviewText] = useState('');
-
-  // Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem reiciendis nesciunt commodi voluptatibus rem. Mollitia, et! Deserunt assumenda maxime alias id harum? Ad impedit sequi aperiam corporis. Aliquam, dolorem ut?
 
   const addReview = text => {
     if (!user) {
@@ -94,6 +95,10 @@ const Reviews = ({ id }) => {
       </div>
     </div>
   );
+};
+
+Reviews.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default Reviews;

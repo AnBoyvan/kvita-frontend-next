@@ -1,5 +1,6 @@
-import styles from './ThemeSwitcher.module.scss';
 import { useTheme } from 'next-themes';
+
+import styles from './ThemeSwitcher.module.scss';
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();

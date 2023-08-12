@@ -1,9 +1,12 @@
 import { useRouter } from 'next/router';
-import styles from './ProductsList.module.scss';
-import { useFetchProducts } from '@/hooks/useProducts';
-import { useEffect, useState } from 'react';
-import ProductCard from '@/components/ProductCard/ProductCard';
+import { useEffect } from 'react';
+
+import { ProductCard } from '@/components';
 import Pagination from '../Pagination/Pagination';
+
+import { useFetchProducts } from '@/hooks/useProducts';
+
+import styles from './ProductsList.module.scss';
 
 const ProductsList = () => {
   const { query } = useRouter();

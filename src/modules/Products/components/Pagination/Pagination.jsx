@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import ReactPaginate from 'react-paginate';
+import PropTypes from 'prop-types';
+
+import Icon from '@/ui/Icon/Icon';
 
 import styles from './Pagination.module.scss';
-import { useRouter } from 'next/router';
-import { Icon } from '@/ui/Icon/Icon';
 
 const Pagination = ({ count }) => {
   const router = useRouter();
@@ -45,6 +47,10 @@ const Pagination = ({ count }) => {
       />
     </div>
   );
+};
+
+Pagination.propTypes = {
+  count: PropTypes.number.isRequired,
 };
 
 export default Pagination;

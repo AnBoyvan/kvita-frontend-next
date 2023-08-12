@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+
 import logo from '/public/images/logo-icon.png';
 import name from '/public/images/logo-name.png';
 

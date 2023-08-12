@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Buttons.module.scss';
 
 const SubmitButton = ({ children }) => {
@@ -6,6 +8,10 @@ const SubmitButton = ({ children }) => {
       {children}
     </button>
   );
+};
+
+SubmitButton.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default SubmitButton;

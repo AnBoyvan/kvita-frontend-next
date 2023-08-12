@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Icon } from '@/ui/Icon/Icon';
+
+import Icon from '@/ui/Icon/Icon';
+
 import styles from '../CabinetLayout.module.scss';
 
 const AdminNav = () => {

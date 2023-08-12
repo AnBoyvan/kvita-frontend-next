@@ -1,4 +1,4 @@
-import CabinetLayout from '@/components/CabinetLayout/CabinetLayout';
+import { CabinetLayout } from '@/components';
 
 const ProductsPage = () => {
   return (

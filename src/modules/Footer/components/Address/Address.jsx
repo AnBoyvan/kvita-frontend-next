@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import Logo from '@/ui/Logo/Logo';
-import styles from './Adress.module.scss';
 
-const Adress = () => {
+import Logo from '@/ui/Logo/Logo';
+
+import styles from './Address.module.scss';
+
+const Address = () => {
   return (
     <div className={styles.container}>
       <Logo
@@ -27,4 +29,4 @@ const Adress = () => {
   );
 };
 
-export default Adress;
+export default Address;

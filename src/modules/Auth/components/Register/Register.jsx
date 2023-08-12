@@ -1,13 +1,16 @@
-import styles from './Register.module.scss';
+import { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
+
+import { AuthInput } from '@/ui/Inputs';
+import { SubmitButton } from '@/ui/Buttons';
+import { RevalidationRequest } from '..';
+
+import { ModalContext } from '@/hooks/useModal';
 import { register } from '@/redux/auth/auth-operations';
 import { registerSchema } from '@/utils/validation/userSchemas';
-import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
-import RevalidationRequest from '../RevalidationRequest/RevalidationRequest';
+
+import styles from './Register.module.scss';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -62,7 +65,7 @@ const Register = () => {
             >
               Повторна верифікація
             </button>
-            <SubmitBtn>Зареєструватись</SubmitBtn>
+            <SubmitButton>Зареєструватись</SubmitButton>
           </Form>
         )}
       </Formik>

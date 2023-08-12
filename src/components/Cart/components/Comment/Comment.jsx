@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Comment.module.scss';
 
 const Comment = ({
@@ -32,6 +34,13 @@ const Comment = ({
       )}
     </div>
   );
+};
+
+Comment.propTypes = {
+  addComment: PropTypes.bool.isRequired,
+  setAddComment: PropTypes.func.isRequired,
+  comment: PropTypes.string.isRequired,
+  setComment: PropTypes.func.isRequired,
 };
 
 export default Comment;

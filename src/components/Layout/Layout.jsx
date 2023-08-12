@@ -1,8 +1,11 @@
-import Header from '@/modules/Header/Header';
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import Modal from '../Modal/Modal';
+
+import Header from '@/modules/Header/Header';
 import Footer from '@/modules/Footer/Footer';
+import Modal from '../Modal/Modal';
+
+import { ModalContext } from '@/hooks/useModal';
 
 const Layout = ({ children }) => {
   const { isOpen } = useContext(ModalContext);
@@ -20,6 +23,10 @@ const Layout = ({ children }) => {
       <Footer />
     </div>
   );
+};
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
-import CabinetLayout from '@/components/CabinetLayout/CabinetLayout';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
+import CabinetLayout from '../CabinetLayout/CabinetLayout';
+
 import { useAuth } from '@/hooks/useAuth';
+
 import styles from './AdminCabinetContainer.module.scss';
 
 const adminRoles = ['manager', 'admin', 'superuser'];

@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
 import Link from 'next/link';
-import styles from './SearchModal.module.scss';
 import Image from 'next/image';
+
+import styles from './SearchModal.module.scss';
 
 const SearchModaResult = ({ items, search, action }) => {
   const list = items.map(({ _id, name, imageURL }) => (
@@ -36,6 +38,18 @@ const SearchModaResult = ({ items, search, action }) => {
       )}
     </div>
   );
+};
+
+SearchModaResult.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      imageURL: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  search: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
 };
 
 export default SearchModaResult;

@@ -1,10 +1,13 @@
-import Container from '@/components/Container/Container';
-import { getProductById } from '@/services/kvita-API/products';
-import styles from '@/modules/Product/Product.module.scss';
-import ProductInfo from '@/modules/Product/components/ProductInfo/ProductInfo';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import MainButton from '@/ui/Buttons/MainButton';
-import Reviews from '@/modules/Product/components/Reviews/Reviews';
+
+import { Container } from '@/components';
+import { MainButton } from '@/ui/Buttons';
+import { ProductInfo, Reviews } from '@/modules/Product/components';
+
+import { getProductById } from '@/services/kvita-API/products';
+
+import styles from '@/modules/Product/Product.module.scss';
 
 export const getServerSideProps = async context => {
   const { id } = context.params;
@@ -14,7 +17,7 @@ export const getServerSideProps = async context => {
     return { props: { product } };
   } catch (error) {
     console.error('Error fetching data:', error);
-    return { props: { product: null } };
+    return { props: { product: {} } };
   }
 };
 
@@ -33,6 +36,13 @@ const SingleProductPage = ({ product }) => {
       </Container>
     </>
   );
+};
+
+SingleProductPage.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default SingleProductPage;

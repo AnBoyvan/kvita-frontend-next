@@ -1,4 +1,5 @@
-import CabinetLayout from '@/components/CabinetLayout/CabinetLayout';
+
+import { CabinetLayout } from "@/components";
 
 const UsersPage = () => {
   return (

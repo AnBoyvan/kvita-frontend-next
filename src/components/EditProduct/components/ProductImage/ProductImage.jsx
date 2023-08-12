@@ -1,6 +1,9 @@
-import styles from './ProductImage.module.scss';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
-import { Icon } from '@/ui/Icon/Icon';
+
+import Icon from '@/ui/Icon/Icon';
+
+import styles from './ProductImage.module.scss';
 
 const ProductImage = ({ image, setImageURL, setImage, isNew }) => {
   const handleImageChange = e => {
@@ -56,6 +59,13 @@ const ProductImage = ({ image, setImageURL, setImage, isNew }) => {
       )}
     </div>
   );
+};
+
+ProductImage.propTypes = {
+  image: PropTypes.string,
+  setImageURL: PropTypes.func.isRequired,
+  setImage: PropTypes.func.isRequired,
+  isNew: PropTypes.bool.isRequired,
 };
 
 export default ProductImage;

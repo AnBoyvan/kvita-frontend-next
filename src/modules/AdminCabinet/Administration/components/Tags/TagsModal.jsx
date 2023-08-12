@@ -1,12 +1,17 @@
-import MainButton from '@/ui/Buttons/MainButton';
-import styles from './Tags.module.scss';
-import tags from '@/config/tags.json';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import { ModalContext } from '@/hooks/useModal';
 import { useContext, useState } from 'react';
 import Notiflix from 'notiflix';
+
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+
+import { ModalContext } from '@/hooks/useModal';
 import { updateTags } from '@/services/admin';
+
+import styles from './Tags.module.scss';
+import tags from '@/config/tags.json';
 
 const TagsModal = ({ tag, approveButton }) => {
   const { closeModal } = useContext(ModalContext);

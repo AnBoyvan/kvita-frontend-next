@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './FilterItem.module.scss';
 
 const FilterItem = ({ option, checked, onChange }) => {
@@ -19,6 +20,12 @@ const FilterItem = ({ option, checked, onChange }) => {
       </label>
     </li>
   );
+};
+
+FilterItem.propTypes = {
+  option: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default FilterItem;

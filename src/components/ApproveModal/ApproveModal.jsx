@@ -1,8 +1,8 @@
-import MainButton from '@/ui/Buttons/MainButton';
-import styles from './ApproveModal.module.scss';
+import PropTypes from 'prop-types';
 
-import React from 'react';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
+import { MainButton, SecondaryButton } from '@/ui/Buttons';
+
+import styles from './ApproveModal.module.scss';
 
 const ApproveModal = ({
   message,
@@ -24,6 +24,14 @@ const ApproveModal = ({
       </div>
     </div>
   );
+};
+
+ApproveModal.propTypes = {
+  message: PropTypes.string.isRequired,
+  approveButton: PropTypes.string.isRequired,
+  approveAction: PropTypes.func.isRequired,
+  rejectButton: PropTypes.string.isRequired,
+  rejectaction: PropTypes.func.isRequired,
 };
 
 export default ApproveModal;

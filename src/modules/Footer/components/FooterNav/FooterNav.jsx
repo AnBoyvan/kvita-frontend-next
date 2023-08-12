@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import navList from '@/config/navigation.json';
+import { useRouter } from 'next/router';
+
 import styles from './FooterNav.module.scss';
+import navList from '@/config/navigation.json';
 
 const FooterNav = () => {
   const { pathname } = useRouter();

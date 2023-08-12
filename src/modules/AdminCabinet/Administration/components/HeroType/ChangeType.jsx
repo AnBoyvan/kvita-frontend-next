@@ -1,13 +1,17 @@
-import MainButton from '@/ui/Buttons/MainButton';
-import styles from './HeroType.module.scss';
-
 import { useContext, useState } from 'react';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
+
+import { Options } from '@/ui/Inputs';
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+
 import { ModalContext } from '@/hooks/useModal';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import admin from '@/config/admin.json';
-import Options from '@/ui/Inputs/Options/Options';
 import { updateAdmin } from '@/services/admin';
+
+import styles from './HeroType.module.scss';
+import admin from '@/config/admin.json';
 
 const ChangeType = () => {
   const { closeModal } = useContext(ModalContext);

@@ -1,24 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styles from './Cart.module.scss';
+import { useContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { customAlphabet } from 'nanoid';
+
+import { CloseModalButton } from '@/ui/Buttons';
+import {
+  CartItem,
+  Comment,
+  CustomerInfo,
+  Delivery,
+} from './components';
+
+import { useAuth } from '@/hooks/useAuth';
+import { ModalContext } from '@/hooks/useModal';
+import { useMutateOrders } from '@/hooks/useOrders';
 import { getCart, getUser } from '@/redux/auth/auth-selectors';
 import { getLocalCart } from '@/redux/localCart/localCart-selectors';
-import { useAuth } from '@/hooks/useAuth';
-import { customAlphabet } from 'nanoid';
-import { useContext, useEffect, useState } from 'react';
-import { useMutateOrders } from '@/hooks/useOrders';
-import { useCart } from '@/hooks/useCart';
-import { ModalContext } from '@/hooks/useModal';
-import CartItem from './components/CartItem/CartItem';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import Delivery from './components/Delivery/Delivery';
-import Comment from './components/Comment/Comment';
-import CustomerInfo from './components/CustomerInfo/CustomerInfo';
+
+import styles from './Cart.module.scss';
 
 const Cart = () => {
   const nanoid = customAlphabet('1234567890', 7);
-  const dispatch = useDispatch();
   const { addNewOrder } = useMutateOrders();
-  const { clearLocalCart, clearUserCart } = useCart();
   const { closeModal } = useContext(ModalContext);
 
   const user = useSelector(getUser);

@@ -1,11 +1,16 @@
 import { useContext, useState } from 'react';
-import styles from './HeroType.module.scss';
+
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+
 import { ModalContext } from '@/hooks/useModal';
-import announcement from '@/config/announcement.json';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import MainButton from '@/ui/Buttons/MainButton';
 import { updateAnnouncement } from '@/services/admin';
+
+import styles from './HeroType.module.scss';
+import announcement from '@/config/announcement.json';
 
 const ChangeAnnouncement = () => {
   const { closeModal } = useContext(ModalContext);

@@ -1,13 +1,15 @@
-import styles from './RevalidationRequest.module.scss';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import { Formik, Form } from 'formik';
-import { requestSchema } from '@/utils/validation/userSchemas';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
 import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+
+import { CloseModalButton, SubmitButton } from '@/ui/Buttons';
+import { AuthInput } from '@/ui/Inputs';
+
+import { ModalContext } from '@/hooks/useModal';
+import { requestSchema } from '@/utils/validation/userSchemas';
 import { resendVerificationEmail } from '@/redux/auth/auth-operations';
+
+import styles from './RevalidationRequest.module.scss';
 
 const RevalidationRequest = () => {
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const RevalidationRequest = () => {
         {() => (
           <Form className={styles.form}>
             <AuthInput label="Пошта" name="email" type="email" />
-            <SubmitBtn>Надіслати запит</SubmitBtn>
+            <SubmitButton>Надіслати запит</SubmitButton>
           </Form>
         )}
       </Formik>

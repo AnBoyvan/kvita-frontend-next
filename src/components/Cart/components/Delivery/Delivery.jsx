@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Delivery.module.scss';
 
 const Delivery = ({
@@ -31,6 +33,13 @@ const Delivery = ({
       )}
     </div>
   );
+};
+
+Delivery.propTypes = {
+  delivery: PropTypes.bool.isRequired,
+  setDelivery: PropTypes.func.isRequired,
+  deliveryAdress: PropTypes.string.isRequired,
+  setDeliveryAdress: PropTypes.func.isRequired,
 };
 
 export default Delivery;

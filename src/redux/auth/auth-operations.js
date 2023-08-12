@@ -1,7 +1,8 @@
+import Notiflix from 'notiflix';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import * as api from '@/services/kvita-API/auth';
 import { instance } from '@/services/kvita-API/kvita-instance';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import Notiflix from 'notiflix';
 
 const setAuthHeader = token => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;

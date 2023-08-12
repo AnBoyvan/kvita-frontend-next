@@ -1,24 +1,24 @@
-import { Icon } from '@/ui/Icon/Icon';
-import AdministrationSection from '../AdministrationSection/AdministrationSection';
-import styles from './Contacts.module.scss';
-import contacts from '@/config/contacts.json';
-import MainButton from '@/ui/Buttons/MainButton';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
+
+import { MainButton } from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
+import AdministrationSection from '../AdministrationSection/AdministrationSection';
 import ContactsModal from './ContactsModal';
 
+import { ModalContext } from '@/hooks/useModal';
+
+import styles from './Contacts.module.scss';
+import contacts from '@/config/contacts.json';
+
 const Contacts = () => {
-  const { phone, email, facebook, instagram, telegram, viber } =
-    contacts;
+  const { phone, email, facebook, instagram, telegram } = contacts;
 
   const { openModal, closeModal } = useContext(ModalContext);
 
   const handleUpdate = item => {
-    // console.log(item);
     openModal(<ContactsModal contact={item} />);
   };
 
-  // console.log(contacts);
   return (
     <AdministrationSection title="Контакти">
       <ul className={styles.list}>

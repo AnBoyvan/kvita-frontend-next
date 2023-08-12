@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
+
 import { verify } from '@/redux/auth/auth-operations';
 
 const Verification = () => {

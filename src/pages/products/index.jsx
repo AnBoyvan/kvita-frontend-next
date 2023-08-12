@@ -1,10 +1,11 @@
-import Container from '@/components/Container/Container';
-
-import SearchBar from '@/modules/Products/components/SearchBar/SearchBar';
+import { Container } from '@/components';
+import {
+  Categories,
+  ProductsList,
+  SearchBar,
+} from '@/modules/Products/components';
 
 import styles from '@/modules/Products/Products.module.scss';
-import Categories from '@/modules/Products/components/Categories/Categories';
-import ProductsList from '@/modules/Products/components/ProductsList/ProductsList';
 
 const ProductsPage = () => {
   return (

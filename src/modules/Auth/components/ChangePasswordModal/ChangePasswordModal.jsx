@@ -1,13 +1,15 @@
-import { ModalContext } from '@/hooks/useModal';
-import { changePassword } from '@/redux/auth/auth-operations';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import { passwordChangeSchema } from '@/utils/validation/userSchemas';
-import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { useDispatch } from 'react-redux';
+import { Form, Formik } from 'formik';
+
+import { CloseModalButton, SubmitButton } from '@/ui/Buttons';
+import { AuthInput } from '@/ui/Inputs';
+
+import { ModalContext } from '@/hooks/useModal';
+import { changePassword } from '@/redux/auth/auth-operations';
+import { passwordChangeSchema } from '@/utils/validation/userSchemas';
+
 import styles from './ChangePasswordModal.module.scss';
 
 const ChangePasswordModal = () => {
@@ -55,7 +57,7 @@ const ChangePasswordModal = () => {
                 name="confirmPassword"
                 type="password"
               />
-              <SubmitBtn>Змінити пароль</SubmitBtn>
+              <SubmitButton>Змінити пароль</SubmitButton>
             </Form>
           )}
         </Formik>

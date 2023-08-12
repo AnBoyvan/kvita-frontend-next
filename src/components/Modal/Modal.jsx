@@ -1,7 +1,8 @@
-import styles from './Modal.module.scss';
 import { useContext } from 'react';
 
 import { ModalContext } from '@/hooks/useModal';
+
+import styles from './Modal.module.scss';
 
 const Modal = () => {
   const { modalContent, closeModal } = useContext(ModalContext);

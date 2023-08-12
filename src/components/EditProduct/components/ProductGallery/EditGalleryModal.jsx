@@ -1,11 +1,17 @@
+import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
-import styles from './ProductGallery.module.scss';
-import { Icon } from '@/ui/Icon/Icon';
 import Image from 'next/image';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import MainButton from '@/ui/Buttons/MainButton';
+
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
+
 import { ModalContext } from '@/hooks/useModal';
+
+import styles from './ProductGallery.module.scss';
 
 const EditGalleryModal = ({ id }) => {
   const { closeModal } = useContext(ModalContext);
@@ -85,6 +91,10 @@ const EditGalleryModal = ({ id }) => {
       </div>
     </div>
   );
+};
+
+EditGalleryModal.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default EditGalleryModal;

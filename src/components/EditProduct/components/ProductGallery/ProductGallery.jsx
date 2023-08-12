@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types';
 import Image from 'next/image';
-import styles from './ProductGallery.module.scss';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import { Icon } from '@/ui/Icon/Icon';
+
+import Icon from '@/ui/Icon/Icon';
+import { EditContainer } from '..';
 import EditGalleryModal from './EditGalleryModal';
-import EditContainer from '../EditContainer/EditContainer';
+
+import { ModalContext } from '@/hooks/useModal';
+
+import styles from './ProductGallery.module.scss';
 
 const ProductGallery = ({ images, setMainImage, id }) => {
   const { openModal, closeModal } = useContext(ModalContext);
@@ -44,8 +48,6 @@ const ProductGallery = ({ images, setMainImage, id }) => {
   ));
   return (
     <EditContainer>
-      {/* <div className={styles.container}> */}
-      {/* <h2 className={styles.title}>Фото</h2> */}
       <ul className={styles.list}>
         {list}
         <button
@@ -56,9 +58,14 @@ const ProductGallery = ({ images, setMainImage, id }) => {
           <Icon id="camera" />
         </button>
       </ul>
-      {/* </div> */}
     </EditContainer>
   );
+};
+
+ProductGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setMainImage: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ProductGallery;

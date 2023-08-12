@@ -1,9 +1,13 @@
-import styles from './ProductCategory.module.scss';
-import EditContainer from '../EditContainer/EditContainer';
+import PropTypes from 'prop-types';
+
+import { EditContainer } from '..';
+
 import {
   toEnglish,
   toUkrainian,
 } from '@/utils/helpers/categoryTranslate';
+
+import styles from './ProductCategory.module.scss';
 
 const ProductCategory = ({ category, setCategory }) => {
   const options = ['pie', 'cake', 'dessert', 'other'];
@@ -36,6 +40,11 @@ const ProductCategory = ({ category, setCategory }) => {
       </select>
     </EditContainer>
   );
+};
+
+ProductCategory.propTypes = {
+  category: PropTypes.string.isRequired,
+  setCategory: PropTypes.func.isRequired,
 };
 
 export default ProductCategory;

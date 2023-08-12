@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+
+import { EditContainer } from '..';
+
 import styles from './ProductName.module.scss';
-import EditContainer from '../EditContainer/EditContainer';
 
 const ProductName = ({ name, setName }) => {
   return (
@@ -14,6 +17,11 @@ const ProductName = ({ name, setName }) => {
       />
     </EditContainer>
   );
+};
+
+ProductName.propTypes = {
+  name: PropTypes.string.isRequired,
+  setName: PropTypes.func.isRequired,
 };
 
 export default ProductName;

@@ -1,11 +1,17 @@
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import styles from './Contacts.module.scss';
-import contacts from '@/config/contacts.json';
-import MainButton from '@/ui/Buttons/MainButton';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
+import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
+
+import {
+  CloseModalButton,
+  MainButton,
+  SecondaryButton,
+} from '@/ui/Buttons';
+
 import { ModalContext } from '@/hooks/useModal';
 import { updateContacts } from '@/services/admin';
+
+import styles from './Contacts.module.scss';
+import contacts from '@/config/contacts.json';
 
 const ContactsModal = ({ contact }) => {
   const fieldName = Object.keys(contact)[0];
@@ -56,6 +62,10 @@ const ContactsModal = ({ contact }) => {
       <CloseModalButton />
     </div>
   );
+};
+
+ContactsModal.propTypes = {
+  contact: PropTypes.object.isRequired,
 };
 
 export default ContactsModal;

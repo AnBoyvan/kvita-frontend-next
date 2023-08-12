@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './AdministrationSection.module.scss';
 
 const AdministrationSection = ({ children, title }) => {
@@ -7,6 +9,11 @@ const AdministrationSection = ({ children, title }) => {
       {children}
     </section>
   );
+};
+
+AdministrationSection.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default AdministrationSection;

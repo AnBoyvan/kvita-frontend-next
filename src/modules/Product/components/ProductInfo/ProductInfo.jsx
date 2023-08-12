@@ -1,12 +1,15 @@
-import LikeButton from '@/ui/Buttons/LikeButton';
-import styles from './ProductInfo.module.scss';
-import Image from 'next/image';
-import { ProductImages } from '../ProductImages/ProductImages';
+import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
-import { Icon } from '@/ui/Icon/Icon';
-import CartButton from '@/ui/Buttons/CartButton';
+import Image from 'next/image';
+
+import ProductImageModal from '../ProductImageModal/ProductImageModal';
+import ProductImages from '../ProductImages/ProductImages';
+import Icon from '@/ui/Icon/Icon';
+import { CartButton, LikeButton } from '@/ui/Buttons';
+
 import { ModalContext } from '@/hooks/useModal';
-import ProductImageModal from '@/modules/Product/components/ProductImageModal/ProductImageModal';
+
+import styles from './ProductInfo.module.scss';
 
 const ProductInfo = ({ product }) => {
   const { openModal } = useContext(ModalContext);
@@ -136,6 +139,22 @@ const ProductInfo = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductInfo.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
+    imageGallery: PropTypes.arrayOf(PropTypes.string),
+    favorite: PropTypes.arrayOf(PropTypes.string).isRequired,
+    price: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    calories: PropTypes.number,
+    proteins: PropTypes.number,
+    fats: PropTypes.number,
+    carbohydrates: PropTypes.number,
+  }).isRequired,
 };
 
 export default ProductInfo;

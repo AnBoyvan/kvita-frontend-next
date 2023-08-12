@@ -1,10 +1,14 @@
-import { Icon } from '@/ui/Icon/Icon';
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
+
+import { MainButton } from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
+import ChangeAnnouncement from './ChangeAnnouncement';
+
+import { ModalContext } from '@/hooks/useModal';
+
 import styles from './HeroType.module.scss';
 import announcement from '@/config/announcement.json';
-import MainButton from '@/ui/Buttons/MainButton';
-import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import ChangeAnnouncement from './ChangeAnnouncement';
 
 const AnnouncementOption = ({ action }) => {
   const { openModal } = useContext(ModalContext);
@@ -39,6 +43,10 @@ const AnnouncementOption = ({ action }) => {
       </MainButton>
     </div>
   );
+};
+
+AnnouncementOption.propTypes = {
+  action: PropTypes.func.isRequired,
 };
 
 export default AnnouncementOption;

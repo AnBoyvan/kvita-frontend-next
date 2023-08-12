@@ -1,11 +1,14 @@
-import styles from './ImagesList.module.scss';
-import { usePictures } from '@/hooks/usePictures';
-import ImageItem from '../ImageItem/ImageItem';
-import { useContext, useEffect } from 'react';
-import GalleryImageModal from '../GalleryImageModal/GalleryImageModal';
-import { ModalContext } from '@/hooks/useModal';
-import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+import ImageItem from '../ImageItem/ImageItem';
+import GalleryImageModal from '../GalleryImageModal/GalleryImageModal';
+
+import { ModalContext } from '@/hooks/useModal';
+import { usePictures } from '@/hooks/usePictures';
+
+import styles from './ImagesList.module.scss';
 
 const ImagesList = () => {
   const { ref, inView } = useInView();

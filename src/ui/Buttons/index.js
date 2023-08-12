@@ -5,7 +5,7 @@ import LogoutButton from './LogoutButton';
 import MainButton from './MainButton';
 import MainLinkButton from './MainLinkButton';
 import SecondaryButton from './SecondaryButton';
-import SubmitBtn from './SubmitButton';
+import SubmitButton from './SubmitButton';
 
 export {
   CartButton,
@@ -15,5 +15,5 @@ export {
   MainButton,
   MainLinkButton,
   SecondaryButton,
-  SubmitBtn,
+  SubmitButton,
 };

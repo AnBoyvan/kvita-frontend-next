@@ -1,13 +1,16 @@
-import styles from './Login.module.scss';
-import { logIn } from '@/redux/auth/auth-operations';
+import { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
-import { loginSchema } from '@/utils/validation/userSchemas';
+
+import { AuthInput } from '@/ui/Inputs';
+import { SubmitButton } from '@/ui/Buttons';
+import { ChangePasswordRequest } from '..';
+
 import { ModalContext } from '@/hooks/useModal';
-import { useContext } from 'react';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
-import ChangePasswordRequest from '../ChangePasswordRequest/ChangePasswordRequest';
+import { logIn } from '@/redux/auth/auth-operations';
+import { loginSchema } from '@/utils/validation/userSchemas';
+
+import styles from './Login.module.scss';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -51,7 +54,7 @@ const Login = () => {
             >
               Забули пароль?
             </button>
-            <SubmitBtn>Увійти</SubmitBtn>
+            <SubmitButton>Увійти</SubmitButton>
           </Form>
         )}
       </Formik>

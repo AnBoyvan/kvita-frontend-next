@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import MainButton from '@/ui/Buttons/MainButton';
-import { Icon } from '@/ui/Icon/Icon';
+
+import Icon from '@/ui/Icon/Icon';
+import { MainButton } from '@/ui/Buttons';
+
 import styles from './SearchBar.module.scss';
 
 const SearchBar = () => {

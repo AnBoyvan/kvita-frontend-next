@@ -1,8 +1,11 @@
-import StoreProvider from './components/StoreProvider';
-import AuthProvider from './components/AuthProvider';
 import { ThemeProvider } from 'next-themes';
 import { ModalProvider } from '@/hooks/useModal';
-import QueryProvider from './components/QueryProvider';
+
+import {
+  AuthProvider,
+  QueryProvider,
+  StoreProvider,
+} from './components';
 
 const Providers = ({ children, props }) => {
   return (

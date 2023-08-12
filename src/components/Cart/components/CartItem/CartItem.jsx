@@ -1,11 +1,15 @@
+import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { useCart } from '@/hooks/useCart';
-import styles from './CartItem.module.scss';
-import { useContext, useEffect, useState } from 'react';
-import { getProductById } from '@/services/kvita-API/products';
 import Image from 'next/image';
-import { Icon } from '@/ui/Icon/Icon';
+import { useContext, useEffect, useState } from 'react';
+
+import Icon from '@/ui/Icon/Icon';
+
 import { ModalContext } from '@/hooks/useModal';
+import { useCart } from '@/hooks/useCart';
+import { getProductById } from '@/services/kvita-API/products';
+
+import styles from './CartItem.module.scss';
 
 const CartItem = ({ item }) => {
   const { closeModal } = useContext(ModalContext);
@@ -113,6 +117,15 @@ const CartItem = ({ item }) => {
       )}
     </>
   );
+};
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    productId: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    sum: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default CartItem;

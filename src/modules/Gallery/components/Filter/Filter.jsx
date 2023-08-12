@@ -1,11 +1,12 @@
-import { range } from 'lodash';
-import styles from './Filter.module.scss';
-import { useEffect, useState } from 'react';
-import { Icon } from '@/ui/Icon/Icon';
-import tagsList from '@/config/tags.json';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
+import Icon from '@/ui/Icon/Icon';
+import { MainButton } from '@/ui/Buttons';
 import FilterItem from '../FilterItem/FilterItem';
-import MainButton from '@/ui/Buttons/MainButton';
+
+import styles from './Filter.module.scss';
+import tagsList from '@/config/tags.json';
 
 const Filter = () => {
   const { query, push } = useRouter();

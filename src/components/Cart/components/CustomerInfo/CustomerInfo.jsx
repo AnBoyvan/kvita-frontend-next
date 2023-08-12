@@ -1,9 +1,13 @@
-import { Formik, Form } from 'formik';
-import styles from './CustomerInfo.module.scss';
-import AuthInput from '@/ui/Inputs/AuthInput/AuthInput';
-import SubmitBtn from '@/ui/Buttons/SubmitButton';
-import { newOrderSchema } from '@/utils/validation/orderSchemas';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { Formik, Form } from 'formik';
+
+import { AuthInput } from '@/ui/Inputs';
+import { SubmitButton } from '@/ui/Buttons';
+
+import { newOrderSchema } from '@/utils/validation/orderSchemas';
+
+import styles from './CustomerInfo.module.scss';
 
 const CustomerInfo = ({
   isLoggedIn,
@@ -69,13 +73,24 @@ const CustomerInfo = ({
                   &#8372; {orderSum}
                 </div>
               </div>
-              <SubmitBtn>Оформити замовлення</SubmitBtn>
+              <SubmitButton>Оформити замовлення</SubmitButton>
             </div>
           </Form>
         )}
       </Formik>
     </div>
   );
+};
+
+CustomerInfo.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  user: PropTypes.object,
+  setOwnerName: PropTypes.func.isRequired,
+  setOwnerEmail: PropTypes.func.isRequired,
+  setOwnerPhone: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  orderSum: PropTypes.number.isRequired,
 };
 
 export default CustomerInfo;

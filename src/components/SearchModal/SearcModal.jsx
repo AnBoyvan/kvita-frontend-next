@@ -1,12 +1,15 @@
-import styles from './SearchModal.module.scss';
-import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/router';
-import MainButton from '@/ui/Buttons/MainButton';
-import { Icon } from '@/ui/Icon/Icon';
 import { useContext, useEffect, useState } from 'react';
+import { Formik, Form, Field } from 'formik';
+
+import { MainButton } from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
+import SearchModaResult from './SearchModalResult';
+
 import { ModalContext } from '@/hooks/useModal';
 import { useFetchProducts } from '@/hooks/useProducts';
-import SearchModaResult from './SearchModalResult';
+
+import styles from './SearchModal.module.scss';
 
 const SearcModal = () => {
   const { closeModal } = useContext(ModalContext);
@@ -57,7 +60,7 @@ const SearcModal = () => {
               type="text"
               name="search"
               className={styles.input}
-              autocomplete="off"
+              autoComplete="off"
               onChange={handleChange}
               value={search}
             ></Field>

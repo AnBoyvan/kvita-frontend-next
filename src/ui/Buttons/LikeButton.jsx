@@ -1,8 +1,12 @@
-import styles from './Buttons.module.scss';
 import { useEffect, useState } from 'react';
-import { Icon } from '../Icon/Icon';
+import PropTypes from 'prop-types';
+
+import Icon from '@/ui/Icon/Icon';
+
 import { useAuth } from '@/hooks/useAuth';
 import { useMutateProducts } from '@/hooks/useProducts';
+
+import styles from './Buttons.module.scss';
 
 const LikeButton = ({ id, likes }) => {
   const { user, isLoggedIn } = useAuth();
@@ -37,6 +41,11 @@ const LikeButton = ({ id, likes }) => {
       )}
     </>
   );
+};
+
+LikeButton.propTypes = {
+  id: PropTypes.string.isRequired,
+  likes: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default LikeButton;

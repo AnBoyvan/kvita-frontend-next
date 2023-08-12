@@ -1,6 +1,8 @@
-import { Icon } from '@/ui/Icon/Icon';
+import PropTypes from 'prop-types';
+
+import Icon from '@/ui/Icon/Icon';
+
 import styles from './HeroType.module.scss';
-import heroImg from '/public/images/heroImg.png';
 
 const HeroOption = ({ action }) => {
   return (
@@ -19,6 +21,10 @@ const HeroOption = ({ action }) => {
       <div></div>
     </div>
   );
+};
+
+HeroOption.propTypes = {
+  action: PropTypes.func.isRequired,
 };
 
 export default HeroOption;

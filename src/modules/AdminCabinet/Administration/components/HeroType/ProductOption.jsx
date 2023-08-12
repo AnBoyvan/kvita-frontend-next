@@ -1,9 +1,13 @@
-import { Icon } from '@/ui/Icon/Icon';
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
+
+import Icon from '@/ui/Icon/Icon';
+import ChangeProduct from './ChangeProduct';
+
+import { ModalContext } from '@/hooks/useModal';
+
 import styles from './HeroType.module.scss';
 import newProduct from '@/config/newProduct.json';
-import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import ChangeProduct from './ChangeProduct';
 
 const ProductOption = ({ action }) => {
   const { openModal } = useContext(ModalContext);
@@ -37,6 +41,10 @@ const ProductOption = ({ action }) => {
       </div>
     </div>
   );
+};
+
+ProductOption.propTypes = {
+  action: PropTypes.func.isRequired,
 };
 
 export default ProductOption;

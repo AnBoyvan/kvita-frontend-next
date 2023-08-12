@@ -1,13 +1,17 @@
-import { formatDate } from '@/utils/helpers/formatDate';
-import styles from './Reviews.module.scss';
-import { Icon } from '@/ui/Icon/Icon';
-import { ModalContext } from '@/hooks/useModal';
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import ReviewModal from './ReviewModal';
-import { useMutateReviews } from '@/hooks/useReviews';
 import Notiflix from 'notiflix';
+
+import ReviewModal from './ReviewModal';
+import { ApproveModal } from '@/components';
+import Icon from '@/ui/Icon/Icon';
+
 import { useAuth } from '@/hooks/useAuth';
-import ApproveModal from '@/components/ApproveModal/ApproveModal';
+import { ModalContext } from '@/hooks/useModal';
+import { useMutateReviews } from '@/hooks/useReviews';
+import { formatDate } from '@/utils/helpers/formatDate';
+
+import styles from './Reviews.module.scss';
 
 const ReviewItem = ({ review }) => {
   const { openModal, closeModal } = useContext(ModalContext);
@@ -88,6 +92,16 @@ const ReviewItem = ({ review }) => {
       <p className={styles.comment}>{comment}</p>
     </li>
   );
+};
+
+ReviewItem.propTypes = {
+  review: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    ownerId: PropTypes.string.isRequired,
+    ownerName: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ReviewItem;

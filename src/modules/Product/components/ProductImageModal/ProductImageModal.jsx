@@ -1,8 +1,11 @@
-import { Icon } from '@/ui/Icon/Icon';
-import styles from './ProductImageModal.module.scss';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 import { useState } from 'react';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
+
+import Icon from '@/ui/Icon/Icon';
+import { CloseModalButton } from '@/ui/Buttons';
+
+import styles from './ProductImageModal.module.scss';
 
 const ProductImageModal = ({ title, images, currentImage }) => {
   const [shownImage, setShownImage] = useState(currentImage);
@@ -64,6 +67,12 @@ const ProductImageModal = ({ title, images, currentImage }) => {
       <CloseModalButton />
     </div>
   );
+};
+
+ProductImageModal.propTypes = {
+  title: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentImage: PropTypes.string.isRequired,
 };
 
 export default ProductImageModal;

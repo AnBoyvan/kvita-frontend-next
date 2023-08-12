@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import Image from 'next/image';
+
 import styles from './ImageItem.module.scss';
 
 const ImageItem = ({ image, action }) => {
@@ -17,6 +19,14 @@ const ImageItem = ({ image, action }) => {
       />
     </li>
   );
+};
+
+ImageItem.propTypes = {
+  image: PropTypes.shape({
+    title: PropTypes.string,
+    imageURL: PropTypes.string.isRequired,
+  }).isRequired,
+  action: PropTypes.func.isRequired,
 };
 
 export default ImageItem;

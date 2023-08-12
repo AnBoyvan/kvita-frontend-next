@@ -1,11 +1,14 @@
-import styles from './HeaderNav.module.scss';
-import navList from '@/config/navigation.json';
-import { Icon } from '@/ui/Icon/Icon';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import SearchForm from '@/components/SearchModal/SearcModal';
 import { useContext } from 'react';
+
+import { SearcModal } from '@/components';
+import Icon from '@/ui/Icon/Icon';
+
 import { ModalContext } from '@/hooks/useModal';
+
+import styles from './HeaderNav.module.scss';
+import navList from '@/config/navigation.json';
 
 const HeaderNav = () => {
   const { pathname } = useRouter();
@@ -28,7 +31,7 @@ const HeaderNav = () => {
   ));
 
   const handleSearchClick = () => {
-    openModal(<SearchForm />);
+    openModal(<SearcModal />);
   };
 
   return (

@@ -1,8 +1,10 @@
-import { Icon } from '@/ui/Icon/Icon';
-import styles from './GalleryImageModal.module.scss';
 import Image from 'next/image';
 import { useState } from 'react';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
+
+import Icon from '@/ui/Icon/Icon';
+import { CloseModalButton } from '@/ui/Buttons';
+
+import styles from './GalleryImageModal.module.scss';
 
 const GalleryImageModal = ({ images, currentImage }) => {
   const [shownImage, setShownImage] = useState(currentImage);
@@ -70,6 +72,21 @@ const GalleryImageModal = ({ images, currentImage }) => {
       <CloseModalButton />
     </div>
   );
+};
+
+GalleryImageModal.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      largeImageURL: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ).isRequired,
+  currentImage: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
 };
 
 export default GalleryImageModal;

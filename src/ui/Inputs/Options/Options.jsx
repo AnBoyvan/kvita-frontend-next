@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Options.module.scss';
 
 const Options = ({ action, name, value, title, checked }) => {
@@ -17,6 +19,14 @@ const Options = ({ action, name, value, title, checked }) => {
       </label>
     </div>
   );
+};
+
+Options.propTypes = {
+  action: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
 };
 
 export default Options;

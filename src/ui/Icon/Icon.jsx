@@ -1,4 +1,4 @@
-export const Icon = ({ id }) => {
+const Icon = ({ id }) => {
   switch (id) {
     case 'arrowLeft':
       return (
@@ -1260,3 +1260,5 @@ export const Icon = ({ id }) => {
       return <svg></svg>;
   }
 };
+
+export default Icon;

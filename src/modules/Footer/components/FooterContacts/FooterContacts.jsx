@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import contacts from '@/config/contacts.json';
+
+import Icon from '@/ui/Icon/Icon';
 
 import styles from './FooterContacts.module.scss';
-import { Icon } from '@/ui/Icon/Icon';
+import contacts from '@/config/contacts.json';
 
 const FooterContacts = () => {
   return (

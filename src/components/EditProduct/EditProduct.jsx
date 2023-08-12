@@ -1,20 +1,25 @@
+import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
-import styles from './EditProduct.module.scss';
-import ProductImage from './components/ProductImage/ProductImage';
-import MainButton from '@/ui/Buttons/MainButton';
-import SecondaryButton from '@/ui/Buttons/SecondaryButton';
-import { ModalContext } from '@/hooks/useModal';
-import ApproveModal from '../ApproveModal/ApproveModal';
-import ProductGallery from './components/ProductGallery/ProductGallery';
-import ProductName from './components/ProductName/ProductName';
-import ProductPrice from './components/ProductPrice/ProductPrice';
-import ProductDescription from './components/ProductDescription/ProductDescription';
-import ProductCategory from './components/ProductCategory/ProductCategory';
-import ProductNutrients from './components/ProductNutrients/ProductNutrients';
-import { useValidateProduct } from '@/hooks/useValidateProduct';
 import Notiflix from 'notiflix';
+
+import ApproveModal from '@/components/ApproveModal/ApproveModal';
+import {
+  ProductCategory,
+  ProductDescription,
+  ProductGallery,
+  ProductImage,
+  ProductName,
+  ProductNutrients,
+  ProductPrice,
+} from './components';
+import { MainButton, SecondaryButton } from '@/ui/Buttons';
+
+import { ModalContext } from '@/hooks/useModal';
 import { useMutateProducts } from '@/hooks/useProducts';
+import { useValidateProduct } from '@/hooks/useValidateProduct';
 import { newProductFormData } from '@/utils/helpers/formDataFormating';
+
+import styles from './EditProduct.module.scss';
 
 const EditProduct = ({ product = {}, isNew }) => {
   const { openModal, closeModal } = useContext(ModalContext);
@@ -160,6 +165,24 @@ const EditProduct = ({ product = {}, isNew }) => {
       </div>
     </div>
   );
+};
+
+EditProduct.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    description: PropTypes.string,
+    category: PropTypes.string,
+    imageURL: PropTypes.string,
+    imageGallery: PropTypes.arrayOf(PropTypes.string),
+    calories: PropTypes.number,
+    proteins: PropTypes.number,
+    fats: PropTypes.number,
+    carbohydrates: PropTypes.number,
+    favorite: PropTypes.arrayOf(PropTypes.string),
+  }),
+  isNew: PropTypes.bool,
 };
 
 export default EditProduct;

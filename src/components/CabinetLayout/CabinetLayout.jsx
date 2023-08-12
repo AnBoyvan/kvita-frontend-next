@@ -1,12 +1,14 @@
-import { useAuth } from '@/hooks/useAuth';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
+import Container from '@/components/Container/Container';
+import { AdminNav, UserNav } from './components';
+import { LogoutButton } from '@/ui/Buttons';
+
+import { useAuth } from '@/hooks/useAuth';
+
 import styles from './CabinetLayout.module.scss';
-import LogoutButton from '@/ui/Buttons/LogoutButton';
-import Container from '../Container/Container';
-import UserNav from './components/UserNav';
-import AdminNav from './components/AdminNav';
 
 const CabinetLayout = ({ children }) => {
   const { replace } = useRouter();
@@ -37,6 +39,10 @@ const CabinetLayout = ({ children }) => {
       </div>
     </Container>
   );
+};
+
+CabinetLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default CabinetLayout;

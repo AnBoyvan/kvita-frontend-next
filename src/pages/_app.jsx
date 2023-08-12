@@ -1,5 +1,6 @@
-import Layout from '@/components/Layout/Layout';
+import { Layout } from '@/components';
 import Providers from '@/modules/Providers/Providers';
+
 import '@/styles/globals.scss';
 
 const App = ({ Component, pageProps }) => {

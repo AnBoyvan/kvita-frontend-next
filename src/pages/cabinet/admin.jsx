@@ -1,7 +1,5 @@
-import AdminCabinetContainer from '@/components/AdminCabinetContainer/AdminCabinetContainer';
-import Contacts from '@/modules/AdminCabinet/Administration/components/Contacts/Contacts';
-import HeroType from '@/modules/AdminCabinet/Administration/components/HeroType/HeroType';
-import Tags from '@/modules/AdminCabinet/Administration/components/Tags/Tags';
+import { AdminCabinetContainer } from "@/components";
+import { Contacts, HeroType, Tags } from "@/modules/AdminCabinet/Administration/components";
 
 const AdminPage = () => {
   return (

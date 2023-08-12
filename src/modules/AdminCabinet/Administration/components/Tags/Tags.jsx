@@ -1,13 +1,16 @@
-import AdministrationSection from '../AdministrationSection/AdministrationSection';
-import tags from '@/config/tags.json';
-import styles from './Tags.module.scss';
-import { Icon } from '@/ui/Icon/Icon';
 import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import MainButton from '@/ui/Buttons/MainButton';
+
+import { ApproveModal } from '@/components';
+import { MainButton } from '@/ui/Buttons';
+import Icon from '@/ui/Icon/Icon';
 import TagsModal from './TagsModal';
-import ApproveModal from '@/components/ApproveModal/ApproveModal';
+import AdministrationSection from '../AdministrationSection/AdministrationSection';
+
+import { ModalContext } from '@/hooks/useModal';
 import { updateTags } from '@/services/admin';
+
+import styles from './Tags.module.scss';
+import tags from '@/config/tags.json';
 
 const Tags = () => {
   const { openModal, closeModal } = useContext(ModalContext);

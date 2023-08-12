@@ -1,12 +1,14 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
+
 import AdministrationSection from '../AdministrationSection/AdministrationSection';
-import styles from './HeroType.module.scss';
-import { ModalContext } from '@/hooks/useModal';
-import admin from '@/config/admin.json';
-import ProductOption from './ProductOption';
-import HeroOption from './HeroOption';
 import AnnouncementOption from './AnnouncementOption';
 import ChangeType from './ChangeType';
+import HeroOption from './HeroOption';
+import ProductOption from './ProductOption';
+
+import { ModalContext } from '@/hooks/useModal';
+
+import admin from '@/config/admin.json';
 
 const HeroType = () => {
   const { openModal } = useContext(ModalContext);

@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+
+import { EditContainer } from '..';
+
 import styles from './ProductPrice.module.scss';
-import EditContainer from '../EditContainer/EditContainer';
 
 const ProductPrice = ({ price, setPrice }) => {
   return (
@@ -15,6 +18,11 @@ const ProductPrice = ({ price, setPrice }) => {
       <span className={styles.currency}>ГРН</span>
     </EditContainer>
   );
+};
+
+ProductPrice.propTypes = {
+  price: PropTypes.number.isRequired,
+  setPrice: PropTypes.func.isRequired,
 };
 
 export default ProductPrice;

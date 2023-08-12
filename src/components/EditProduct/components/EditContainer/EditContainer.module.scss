@@ -11,8 +11,13 @@
 }
 
 .title {
+  display: block;
   font-size: 14px;
+  width: 70px;
+  min-width: 70px;
   @media #{$tablet} {
+    width: 100px;
+    min-width: 100px;
     font-size: 16px;
   }
 }

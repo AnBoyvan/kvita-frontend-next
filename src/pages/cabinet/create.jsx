@@ -1,7 +1,8 @@
-import AdminCabinetContainer from '@/components/AdminCabinetContainer/AdminCabinetContainer';
 import { useState } from 'react';
+
+import { AdminCabinetContainer, EditProduct } from '@/components';
+
 import styles from '@/modules/AdminCabinet/Create/Create.module.scss';
-import EditProduct from '@/components/EditProduct/EditProduct';
 
 const CreatePage = () => {
   const [newProduct, setNewProduct] = useState(true);

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 const Meta = ({ title }) => {
@@ -9,6 +10,10 @@ const Meta = ({ title }) => {
       </Head>
     </>
   );
+};
+
+Meta.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Meta;

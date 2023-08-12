@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
+
 import styles from './Hero.module.scss';
 import admin from '@/config/admin.json';
-import newProduct from '@/config/newProduct.json';
 import announcement from '@/config/announcement.json';
+import newProduct from '@/config/newProduct.json';
 import heroImg from '/public/images/heroImg.png';
 import name from '/public/images/logo-name.png';
-import Link from 'next/link';
 
 const MainHero = () => {
   return (

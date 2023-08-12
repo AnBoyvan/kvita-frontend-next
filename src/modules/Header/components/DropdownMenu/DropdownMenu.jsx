@@ -2,13 +2,15 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useContext } from 'react';
 
+import { SearcModal } from '@/components';
+import Logo from '@/ui/Logo/Logo';
+import Icon from '@/ui/Icon/Icon';
+import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
+
+import { ModalContext } from '@/hooks/useModal';
+
 import styles from './DropdownMenu.module.scss';
 import navList from '@/config/navigation.json';
-import { ModalContext } from '@/hooks/useModal';
-import Logo from '@/ui/Logo/Logo';
-import { Icon } from '@/ui/Icon/Icon';
-import ThemeSwitcher from '@/ui/ThemeSwitcher/ThemeSwitcher';
-import SearchForm from '@/components/SearchModal/SearcModal';
 
 const DropdownMenu = () => {
   const { pathname } = useRouter();
@@ -16,7 +18,7 @@ const DropdownMenu = () => {
   const { closeModal, openModal } = useContext(ModalContext);
 
   const handleSearchClick = () => {
-    openModal(<SearchForm />);
+    openModal(<SearcModal />);
   };
 
   const links = navList.map(({ title, link }, index) => (

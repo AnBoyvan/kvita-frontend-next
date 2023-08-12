@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import Image from 'next/image';
-import styles from './ProductCard.module.scss';
 import Link from 'next/link';
-import LikeButton from '@/ui/Buttons/LikeButton';
-import CartButton from '@/ui/Buttons/CartButton';
+
+import { CartButton, LikeButton } from '@/ui/Buttons';
+
+import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ product }) => {
   const { _id, name, imageURL, price, favorite } = product;
@@ -34,6 +36,16 @@ const ProductCard = ({ product }) => {
       </div>
     </li>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    favorite: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
 };
 
 export default ProductCard;

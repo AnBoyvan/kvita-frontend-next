@@ -1,10 +1,13 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
+
+import { CloseModalButton, MainButton } from '@/ui/Buttons';
+
 import styles from './Reviews.module.scss';
-import MainButton from '@/ui/Buttons/MainButton';
-import CloseModalButton from '@/ui/Buttons/CloseModalButton';
 
 const ReviewModal = ({ button, onSubmit, initialText }) => {
   const [text, setText] = useState(initialText || '');
+
   const handleChange = e => {
     setText(e.target.value);
   };
@@ -27,6 +30,12 @@ const ReviewModal = ({ button, onSubmit, initialText }) => {
       </div>
     </div>
   );
+};
+
+ReviewModal.propTypes = {
+  button: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  initialText: PropTypes.string,
 };
 
 export default ReviewModal;

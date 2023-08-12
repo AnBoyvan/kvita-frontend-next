@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
+import { useContext } from 'react';
+
+import { ApproveModal } from '@/components';
+import Icon from '@/ui/Icon/Icon';
+
+import { ModalContext } from '@/hooks/useModal';
 import { logOut } from '@/redux/auth/auth-operations';
 
 import styles from './Buttons.module.scss';
-import { Icon } from '../Icon/Icon';
-import { useContext } from 'react';
-import { ModalContext } from '@/hooks/useModal';
-import ApproveModal from '@/components/ApproveModal/ApproveModal';
 
 const LogoutButton = () => {
   const { openModal, closeModal } = useContext(ModalContext);
