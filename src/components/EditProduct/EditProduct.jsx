@@ -16,7 +16,7 @@ import { MainButton, SecondaryButton } from '@/ui/Buttons';
 
 import { ModalContext } from '@/hooks/useModal';
 import { useMutateProducts } from '@/hooks/useProducts';
-import { useValidateProduct } from '@/hooks/useValidateProduct';
+import { useValidate } from '@/hooks/useValidate';
 import { newProductFormData } from '@/utils/helpers/formDataFormating';
 
 import styles from './EditProduct.module.scss';
@@ -24,7 +24,7 @@ import styles from './EditProduct.module.scss';
 const EditProduct = ({ product = {}, isNew }) => {
   const { openModal, closeModal } = useContext(ModalContext);
   const { addNewProduct } = useMutateProducts();
-  const { validateNewProduct } = useValidateProduct();
+  const { validateNewProduct } = useValidate();
 
   const [productName, setProductName] = useState(product.name || '');
   const [productPrice, setProductPrice] = useState(
@@ -37,8 +37,8 @@ const EditProduct = ({ product = {}, isNew }) => {
     product.category || ''
   );
   const [productImage, setProductImage] = useState(null);
-  const [productImages, setProductImages] = useState(null);
-
+  const [addedToGallery, setAddedToGallery] = useState([]);
+  const [newImages, setNewImages] = useState([]);
   const [productImageURL, setProductImageURL] = useState(
     product.imageURL || ''
   );
@@ -58,7 +58,8 @@ const EditProduct = ({ product = {}, isNew }) => {
     setProductDescription('');
     setProductCategory('');
     setProductImage(null);
-    setProductImages(null);
+    setAddedToGallery([]);
+    setNewImages([]);
     setProductImageURL('');
     setProductImageGallery([]);
     setProductNutrients({
@@ -70,14 +71,40 @@ const EditProduct = ({ product = {}, isNew }) => {
     closeModal();
   };
 
+  const deleteGalleryImages = () => {
+    for (const img of product.imageGallery) {
+      const chekImg = productImageGallery.includes(img);
+      if (!chekImg) {
+        // -видалити
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        // =============================================//
+        //
+      }
+    }
+  };
+
   const submitProduct = async () => {
+    if (!isNew) {
+      await deleteGalleryImages();
+    }
+
     const newProduct = {
       name: productName,
       price: productPrice,
       description: productDescription,
       category: productCategory,
       image: productImage,
-      images: productImages,
+      gallery: addedToGallery,
       imageURL: productImageURL,
       imageGallery: productImageGallery,
       calories: productNutrients.calories,
@@ -86,21 +113,34 @@ const EditProduct = ({ product = {}, isNew }) => {
       carbohydrates: productNutrients.carbohydrates,
     };
 
-    const isValid = isNew ? await validateNewProduct(newProduct) : '';
+    if (isNew) {
+      const isValid = isNew
+        ? await validateNewProduct(newProduct)
+        : '';
 
-    if (isValid === true) {
-      const data = newProductFormData(newProduct);
-      await addNewProduct(data);
+      if (isValid === true) {
+        const data = newProductFormData(newProduct);
+        await addNewProduct(data);
+      } else {
+        const errors = isValid;
+        errors.forEach(error => {
+          Notiflix.Notify.failure(error);
+        });
+        return;
+      }
     } else {
-      const errors = isValid;
-      errors.forEach(error => {
-        Notiflix.Notify.failure(error);
-      });
-      return;
+      //========================//
+      //========================//
+      //========================//
+      //========================//
+      //========================//
+      //========================//
+      //========================//
+      //========================//
     }
 
-    closeModal();
-    clearForm();
+    await closeModal();
+    await clearForm();
   };
 
   const handleSubmit = () => {
@@ -135,13 +175,17 @@ const EditProduct = ({ product = {}, isNew }) => {
         setImageURL={setProductImageURL}
         isNew={isNew}
       />
-      {!isNew && (
-        <ProductGallery
-          images={productImageGallery}
-          setMainImage={setProductImageURL}
-          id={product._id}
-        />
-      )}
+      <ProductGallery
+        isNew={isNew}
+        images={productImageGallery}
+        setProductImageGallery={setProductImageGallery}
+        setMainImage={setProductImageURL}
+        addedToGallery={addedToGallery}
+        setAddedToGallery={setAddedToGallery}
+        newImages={newImages}
+        setNewImages={setNewImages}
+        id={product._id}
+      />
       <ProductName name={productName} setName={setProductName} />
       <ProductPrice price={productPrice} setPrice={setProductPrice} />
       <ProductDescription
@@ -156,7 +200,6 @@ const EditProduct = ({ product = {}, isNew }) => {
         nutrients={productNutrients}
         setNutrients={setProductNutrients}
       />
-
       <div className={styles.btnWrapper}>
         <MainButton onClick={handleSubmit}>Готово</MainButton>
         <SecondaryButton onClick={handleClear}>

@@ -76,7 +76,7 @@ const ProductInfo = ({ product }) => {
         </div>
         <div className={styles.descrWrapper}>
           <div className={styles.descr}>{description}</div>
-          {calories && (
+          {Boolean(calories) && (
             <div className={styles.descrCalories}>
               <p className={styles.descrCaloriesTitle}>Поживність:</p>
 
@@ -106,7 +106,6 @@ const ProductInfo = ({ product }) => {
               </div>
             </div>
           )}
-
           <div className={styles.actionWrapper}>
             <div className={styles.priceWrapper}>
               <span className={styles.priceText}>Ціна</span>

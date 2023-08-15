@@ -9,6 +9,7 @@ export const newProductFormData = product => {
     carbohydrates,
     category,
     image,
+    gallery,
   } = product;
   const formData = new FormData();
   formData.append('name', name);
@@ -19,6 +20,22 @@ export const newProductFormData = product => {
   formData.append('fats', fats);
   formData.append('carbohydrates', carbohydrates);
   formData.append('category', category);
+  formData.append('image', image);
+  for (let i = 0; i < gallery.length; i++) {
+    formData.append('gallery', gallery[i]);
+  }
+  return formData;
+};
+
+export const newPictureFormData = product => {
+  const { title, description, tags, image } = product;
+  const formData = new FormData();
+
+  tags.forEach(value => {
+    formData.append('tags[]', value);
+  });
+  formData.append('title', title);
+  formData.append('description', description);
   formData.append('image', image);
   return formData;
 };

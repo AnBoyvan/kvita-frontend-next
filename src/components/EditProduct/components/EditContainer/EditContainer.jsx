@@ -13,7 +13,7 @@ const EditContainer = ({ children, title }) => {
 
 EditContainer.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default EditContainer;

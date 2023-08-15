@@ -8,17 +8,15 @@ import { useAuth } from '@/hooks/useAuth';
 
 import styles from './AdminCabinetContainer.module.scss';
 
-const adminRoles = ['manager', 'admin', 'superuser'];
-
 const AdminCabinetContainer = ({ children, title }) => {
   const { replace } = useRouter();
-  const { user } = useAuth();
+  const { isLoggedIn, managerAccess } = useAuth();
 
   useEffect(() => {
-    if (user.role && !adminRoles.includes(user.role)) {
+    if (isLoggedIn && !managerAccess) {
       replace('/');
     }
-  }, [replace, user.role]);
+  }, [isLoggedIn, managerAccess, replace]);
 
   return (
     <>

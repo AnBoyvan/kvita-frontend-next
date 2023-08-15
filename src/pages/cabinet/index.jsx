@@ -3,7 +3,9 @@ import { CabinetLayout } from '@/components';
 const CabinetPage = () => {
   return (
     <>
-      <CabinetLayout></CabinetLayout>
+      <CabinetLayout>
+        <div></div>
+      </CabinetLayout>
     </>
   );
 };

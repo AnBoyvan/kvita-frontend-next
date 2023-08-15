@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { AdminCabinetContainer, EditProduct } from '@/components';
+import AddGalleryImage from '@/modules/AdminCabinet/Create/AddGalleryImage/AddGalleryImage';
 
 import styles from '@/modules/AdminCabinet/Create/Create.module.scss';
 
@@ -34,7 +35,11 @@ const CreatePage = () => {
             Фото
           </button>
         </div>
-        {newProduct ? <EditProduct isNew={true} /> : 'picture'}
+        {newProduct ? (
+          <EditProduct isNew={true} />
+        ) : (
+          <AddGalleryImage />
+        )}
       </AdminCabinetContainer>
     </>
   );

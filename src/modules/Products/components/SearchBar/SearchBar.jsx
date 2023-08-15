@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 import Icon from '@/ui/Icon/Icon';
@@ -9,7 +9,7 @@ import styles from './SearchBar.module.scss';
 
 const SearchBar = () => {
   const router = useRouter();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(router.query.search || '');
 
   const initialValues = {
     search,
@@ -44,12 +44,6 @@ const SearchBar = () => {
     setSearch('');
     changeSearchParams('');
   };
-
-  useEffect(() => {
-    if (router.query.search) {
-      setSearch(router.query.search);
-    }
-  }, [router.query.search]);
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>

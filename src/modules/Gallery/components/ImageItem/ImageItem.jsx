@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import Image from 'next/image';
 
 import styles from './ImageItem.module.scss';
+import EditPictureButtons from '@/ui/Buttons/EditPictureButtons';
 
 const ImageItem = ({ image, action }) => {
-  const { title, imageURL } = image;
+  const { _id, title, imageURL } = image;
   return (
     <li className={styles.item} onClick={() => action(image)}>
       <Image
@@ -17,12 +18,14 @@ const ImageItem = ({ image, action }) => {
           borderRadius: 'inherit',
         }}
       />
+      <EditPictureButtons picture={image} />
     </li>
   );
 };
 
 ImageItem.propTypes = {
   image: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string,
     imageURL: PropTypes.string.isRequired,
   }).isRequired,

@@ -55,7 +55,8 @@
   gap: 20px;
   padding-top: 20px;
 
-  @media #{$desktop} {
+  @media #{$laptop} {
+    width: 100%;
     align-items: flex-start;
   }
 }
@@ -83,24 +84,6 @@
 
 .descrCaloriesElement {
   font-size: 14px;
-}
-
-.priceWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 70px;
-}
-
-.price {
-  width: 110px;
-  padding: 15px;
-  border: 1px solid $primary-text-color;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .priceTitle {
@@ -174,25 +157,3 @@
     scale: 1.1;
   }
 }
-
-// .cartBtn {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 70px;
-//   height: 70px;
-//   border: none;
-//   padding: 15px 30px;
-//   border-radius: 50%;
-//   background: $main-button-color;
-//   transition: all $fast $primary-func;
-//   line-height: 1;
-//   color: $primary-text-color;
-
-//   &:hover,
-//   &:focus {
-//     scale: 1.1;
-//     background: $active-color;
-//     box-shadow: 0 0 24px 8px $active-color;
-//   }
-// }

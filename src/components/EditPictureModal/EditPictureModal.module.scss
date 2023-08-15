@@ -1,0 +1,85 @@
+@import '../../styles/variables.scss';
+
+.container {
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-height: 90vh;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 25px;
+  padding: 32px 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $secondary-bg-color;
+  overflow: auto;
+
+  @media #{$tablet} {
+    padding: 44px 50px;
+  }
+}
+
+.titleInput,
+.descriptionInput {
+  width: 100%;
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  background: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.tagsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tagItem {
+  padding: 3px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover,
+  &:focus,
+  &.checked {
+    border: 1px solid $primary-accent-color;
+    color: $primary-accent-color;
+  }
+}
+
+.tagInput {
+  display: none;
+}
+
+.tagLabel {
+  width: 100%;
+  cursor: pointer;
+}
+
+.btnWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

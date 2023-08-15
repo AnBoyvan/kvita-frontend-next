@@ -15,5 +15,11 @@
       "title": "Оголошення"
     }
   ],
-  "minOrder": 300
+  "minOrder": 300,
+  "categories": [
+    { "value": "pie", "title": "Торти" },
+    { "value": "cake", "title": "Солодощі" },
+    { "value": "dessert", "title": "Десерти" },
+    { "value": "other", "title": "Смаколики" }
+  ]
 }

@@ -10,9 +10,9 @@ const AdminNav = () => {
   return (
     <nav className={styles.adminNav}>
       <Link
-        href="/cabinet/admin"
+        href="/admin/administrating"
         className={
-          pathname === '/cabinet/admin'
+          pathname === '/admin/administrating'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }
@@ -23,9 +23,9 @@ const AdminNav = () => {
         <div className={styles.navText}>Адміністратор</div>
       </Link>
       <Link
-        href="/cabinet/create"
+        href="/admin/create"
         className={
-          pathname === '/cabinet/create'
+          pathname === '/admin/create'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }
@@ -36,9 +36,9 @@ const AdminNav = () => {
         <div className={styles.navText}>Створити</div>
       </Link>
       <Link
-        href="/cabinet/products"
+        href="/admin/products"
         className={
-          pathname === '/cabinet/products'
+          pathname === '/admin/products'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }
@@ -50,9 +50,9 @@ const AdminNav = () => {
         <div className={styles.navText}>Продукція</div>
       </Link>
       <Link
-        href="/cabinet/orders"
+        href="/admin/orders"
         className={
-          pathname === '/cabinet/orders'
+          pathname === '/admin/orders'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }
@@ -64,9 +64,9 @@ const AdminNav = () => {
         <div className={styles.navText}>Замовлення</div>
       </Link>
       <Link
-        href="/cabinet/users"
+        href="/admin/users"
         className={
-          pathname === '/cabinet/users'
+          pathname === '/admin/users'
             ? `${styles.navLink} ${styles.active}`
             : styles.navLink
         }

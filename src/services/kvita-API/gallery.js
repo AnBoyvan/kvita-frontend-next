@@ -17,14 +17,18 @@ export const getGalleryImageById = async _id => {
 };
 
 export const addGalleryImage = async data => {
-  const response = await instance.post('/pictures', data);
+  const response = await instance.post('/pictures', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return response.data;
 };
 
-export const updateGalleryImage = async data => {
+export const updateGalleryImage = async ({ updatedPicture, _id }) => {
   const response = await instance.patch(
-    `/pictures/${data._id}`,
-    data
+    `/pictures/${_id}`,
+    updatedPicture
   );
   return response.data;
 };

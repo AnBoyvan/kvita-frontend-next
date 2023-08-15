@@ -33,10 +33,7 @@ const ImagesList = () => {
 
   const openImageModal = image => {
     openModal(
-      <GalleryImageModal
-        images={pictures.result}
-        currentImage={image}
-      />
+      <GalleryImageModal images={pictures()} currentImage={image} />
     );
   };
 
