@@ -1,0 +1,81 @@
+@import '../../../../../styles/variables.scss';
+
+.table {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  .headerCell:nth-child(3),
+  .headerCell:nth-child(4),
+  .headerCell:nth-child(5),
+  .cell:nth-child(3),
+  .cell:nth-child(4),
+  .cell:nth-child(5) {
+    display: none;
+  }
+
+  @media #{$tablet} {
+    grid-template-columns: 2fr 1fr 1fr;
+
+    .headerCell:nth-child(3),
+    .cell:nth-child(3) {
+      display: flex;
+    }
+  }
+
+  @media #{$laptop} {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+
+    .headerCell:nth-child(4),
+    .headerCell:nth-child(5),
+    .cell:nth-child(4),
+    .cell:nth-child(5) {
+      display: flex;
+    }
+  }
+}
+
+.headerRow,
+.row {
+  display: contents;
+}
+
+.row {
+  background-color: $primary-bg-color;
+
+  &:nth-child(odd) div {
+    background-color: $secondary-bg-color;
+  }
+
+  &:nth-child(odd) button {
+    background-color: $secondary-bg-color;
+  }
+
+  & button {
+    display: flex;
+    justify-content: flex-start;
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+    transition: all $fast $primary-func;
+  }
+
+  & button:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.headerCell {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $placeholder-color;
+  border: 1px solid $primary-btn-color;
+  color: $primary-btn-color;
+  cursor: pointer;
+}
+
+.cell {
+  padding: 8px;
+  border: 1px solid $placeholder-color;
+}

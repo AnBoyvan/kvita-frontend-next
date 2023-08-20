@@ -8,6 +8,14 @@ export const toUkrainian = item => {
       return 'Десерти';
     case 'other':
       return 'Смаколики';
+    case 'customer':
+      return 'Клієнт';
+    case 'manager':
+      return 'Менеджер';
+    case 'admin':
+      return 'Адміністратор';
+    case 'superuser':
+      return 'Суперюзер';
     default:
       return '';
   }
@@ -23,6 +31,14 @@ export const toEnglish = item => {
       return 'dessert';
     case 'Смаколики':
       return 'other';
+    case 'Клієнт':
+      return 'customer';
+    case 'Менеджер':
+      return 'manager';
+    case 'Адміністратор':
+      return 'admin';
+    case 'Суперюзер':
+      return 'superuser';
     default:
       return '';
   }

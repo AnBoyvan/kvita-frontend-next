@@ -181,6 +181,24 @@
   }
 }
 
+.sortOrderBtnLabel {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $fast $primary-func;
+  cursor: pointer;
+
+  &.checked {
+    transform: rotate(180deg);
+  }
+
+  & input {
+    display: none;
+  }
+}
+
 .submitBtn {
   width: 100%;
   padding: 12px 24px;

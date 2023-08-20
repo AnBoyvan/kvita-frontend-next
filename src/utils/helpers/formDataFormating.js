@@ -27,6 +27,39 @@ export const newProductFormData = product => {
   return formData;
 };
 
+export const updatedProductFormData = product => {
+  const {
+    name,
+    price,
+    description,
+    imageURL,
+    imageGallery,
+    calories,
+    proteins,
+    fats,
+    carbohydrates,
+    category,
+    gallery,
+  } = product;
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('price', price);
+  formData.append('description', description);
+  formData.append('imageURL', imageURL);
+  imageGallery.forEach(value => {
+    formData.append('imageGallery[]', value);
+  });
+  formData.append('calories', calories);
+  formData.append('proteins', proteins);
+  formData.append('fats', fats);
+  formData.append('carbohydrates', carbohydrates);
+  formData.append('category', category);
+  for (let i = 0; i < gallery.length; i++) {
+    formData.append('gallery', gallery[i]);
+  }
+  return formData;
+};
+
 export const newPictureFormData = product => {
   const { title, description, tags, image } = product;
   const formData = new FormData();

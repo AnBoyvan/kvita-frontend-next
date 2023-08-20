@@ -8,21 +8,16 @@ import {
 } from '@/utils/helpers/categoryTranslate';
 
 import styles from './ProductCategory.module.scss';
+import admin from '@/config/admin.json';
 
 const ProductCategory = ({ category, setCategory }) => {
-  const options = ['pie', 'cake', 'dessert', 'other'];
-
   const handleChange = e => {
     setCategory(toEnglish(e.target.value));
   };
 
-  const optionsList = options.map(option => (
-    <option
-      key={option}
-      value={toUkrainian(option)}
-      className={styles.option}
-    >
-      {toUkrainian(option)}
+  const optionsList = admin.categories.map(({ value, title }) => (
+    <option key={value} value={title} className={styles.option}>
+      {title}
     </option>
   ));
 

@@ -21,5 +21,11 @@
     { "value": "cake", "title": "Солодощі" },
     { "value": "dessert", "title": "Десерти" },
     { "value": "other", "title": "Смаколики" }
+  ],
+  "roles": [
+    { "value": "customer", "title": "Клієнт" },
+    { "value": "manager", "title": "Менеджер" },
+    { "value": "admin", "title": "Адміністратор" },
+    { "value": "superuser", "title": "Суперюзер" }
   ]
 }

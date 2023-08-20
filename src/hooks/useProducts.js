@@ -1,7 +1,10 @@
 import {
   addProduct,
+  deleteGalleryImages,
+  deleteProduct,
   getAllProducts,
   updateFavorites,
+  updateProduct,
 } from '@/services/kvita-API/products';
 import {
   useMutation,
@@ -12,7 +15,7 @@ import Notiflix from 'notiflix';
 
 export const useFetchProducts = query => {
   const { data: products, refetch: refetchProducts } = useQuery({
-    queryKey: ['products'],
+    queryKey: ['products', query],
     queryFn: async () => {
       const data = await getAllProducts(query);
       return data;
@@ -31,6 +34,8 @@ export const useMutateProducts = () => {
       Notiflix.Notify.success(`${message}`);
       client.invalidateQueries(['products']);
     },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
   });
 
   const { mutate: addNewProduct } = useMutation({
@@ -43,5 +48,40 @@ export const useMutateProducts = () => {
       Notiflix.Notify.failure(`${error.response.data.message}`),
   });
 
-  return { updFavorites, addNewProduct };
+  const { mutate: removeProductImage } = useMutation({
+    mutationFn: data => deleteGalleryImages(data),
+    onSuccess: () => {
+      client.invalidateQueries(['products']);
+    },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
+  });
+
+  const { mutate: updProduct } = useMutation({
+    mutationFn: data => updateProduct(data),
+    onSuccess: ({ message }) => {
+      Notiflix.Notify.success(`${message}`);
+      client.invalidateQueries(['products']);
+    },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
+  });
+
+  const { mutate: removeProduct } = useMutation({
+    mutationFn: data => deleteProduct(data),
+    onSuccess: ({ message }) => {
+      Notiflix.Notify.success(`${message}`);
+      client.invalidateQueries(['products']);
+    },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
+  });
+
+  return {
+    updFavorites,
+    addNewProduct,
+    removeProductImage,
+    updProduct,
+    removeProduct,
+  };
 };

@@ -3,6 +3,7 @@ import ApproveModal from './ApproveModal/ApproveModal';
 import CabinetLayout from './CabinetLayout/CabinetLayout';
 import Cart from './Cart/Cart';
 import Container from './Container/Container';
+import DropdownFilter from './DropdownFilter/DropdownFilter';
 import EditProduct from './EditProduct/EditProduct';
 import Layout from './Layout/Layout';
 import Meta from './Meta/Meta';
@@ -16,6 +17,7 @@ export {
   CabinetLayout,
   Cart,
   Container,
+  DropdownFilter,
   EditProduct,
   Layout,
   Meta,

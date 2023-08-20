@@ -1,20 +1,9 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
-import { SecondaryButton } from '@/ui/Buttons';
-import Icon from '@/ui/Icon/Icon';
-
-import styles from './CategoryFilter.module.scss';
+import styles from './RoleFilter.module.scss';
 import admin from '@/config/admin.json';
 
-const CategoryFilter = ({ current, setCurrent }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-    return;
-  };
-
+const RoleFilter = ({ current, setCurrent }) => {
   const handleChange = e => {
     const option = e.target.value;
     if (current.includes(option)) {
@@ -24,7 +13,7 @@ const CategoryFilter = ({ current, setCurrent }) => {
     }
   };
 
-  const list = admin.categories.map(({ value, title }) => (
+  const list = admin.roles.map(({ value, title }) => (
     <li key={value}>
       <label className={styles.label}>
         <input
@@ -41,18 +30,15 @@ const CategoryFilter = ({ current, setCurrent }) => {
 
   return (
     <div className={styles.container}>
-      <SecondaryButton onClick={toggleDropdown}>
-        <span>Категорії</span>
-        <Icon id="filter" />
-      </SecondaryButton>
-      {isDropdownOpen && <ul className={styles.list}>{list}</ul>}
+      <h3 className={styles.title}>Тип користувача:</h3>
+      <ul className={styles.list}>{list}</ul>
     </div>
   );
 };
 
-CategoryFilter.propTypes = {
+RoleFilter.propTypes = {
   current: PropTypes.arrayOf(PropTypes.string).isRequired,
   setCurrent: PropTypes.func.isRequired,
 };
 
-export default CategoryFilter;
+export default RoleFilter;

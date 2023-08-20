@@ -47,7 +47,7 @@ export const changePassword = async ({ password, passwordToken }) => {
   return response;
 };
 
-export const updateByUser = async data => {
-  const response = await instance.patch('/users/current', data);
-  return response;
-};
+// export const updateByUser = async data => {
+//   const response = await instance.patch('/users/current', data);
+//   return response;
+// };

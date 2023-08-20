@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+
+.form {
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid $primary-btn-color;
+  border-radius: 15px 35px;
+  background-color: $secondary-bg-color;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus-within {
+    border: 2px solid $primary-accent-color;
+  }
+}
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  background: transparent;
+  font-size: 14px;
+}
+
+.clearBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  border: none;
+  background: transparent;
+  color: $primary-btn-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}

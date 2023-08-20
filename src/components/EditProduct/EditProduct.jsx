@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import Notiflix from 'notiflix';
 
@@ -17,14 +18,24 @@ import { MainButton, SecondaryButton } from '@/ui/Buttons';
 import { ModalContext } from '@/hooks/useModal';
 import { useMutateProducts } from '@/hooks/useProducts';
 import { useValidate } from '@/hooks/useValidate';
-import { newProductFormData } from '@/utils/helpers/formDataFormating';
+import {
+  newProductFormData,
+  updatedProductFormData,
+} from '@/utils/helpers/formDataFormating';
 
 import styles from './EditProduct.module.scss';
 
 const EditProduct = ({ product = {}, isNew }) => {
   const { openModal, closeModal } = useContext(ModalContext);
-  const { addNewProduct } = useMutateProducts();
-  const { validateNewProduct } = useValidate();
+  const {
+    addNewProduct,
+    removeProductImage,
+    updProduct,
+    removeProduct,
+  } = useMutateProducts();
+  const { validateNewProduct, validateUpdatedProduct } =
+    useValidate();
+  const router = useRouter();
 
   const [productName, setProductName] = useState(product.name || '');
   const [productPrice, setProductPrice] = useState(
@@ -75,30 +86,49 @@ const EditProduct = ({ product = {}, isNew }) => {
     for (const img of product.imageGallery) {
       const chekImg = productImageGallery.includes(img);
       if (!chekImg) {
-        // -видалити
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        // =============================================//
-        //
+        removeProductImage({ _id: product._id, imgURL: img });
       }
     }
   };
 
-  const submitProduct = async () => {
-    if (!isNew) {
-      await deleteGalleryImages();
-    }
+  const createProduct = async newProduct => {
+    const isValid = await validateNewProduct(newProduct);
 
-    const newProduct = {
+    if (isValid === true) {
+      const data = newProductFormData(newProduct);
+      await addNewProduct(data);
+      clearForm();
+      closeModal();
+    } else {
+      const errors = isValid;
+      errors.forEach(error => {
+        Notiflix.Notify.failure(error);
+      });
+      return;
+    }
+    router.push('/admin/products');
+  };
+
+  const updateProduct = async updatedProduct => {
+    await deleteGalleryImages();
+    const isValid = await validateUpdatedProduct(updatedProduct);
+
+    if (isValid === true) {
+      const data = updatedProductFormData(updatedProduct);
+      await updProduct({ _id: product._id, data });
+      closeModal();
+    } else {
+      const errors = isValid;
+      errors.forEach(error => {
+        Notiflix.Notify.failure(error);
+      });
+      return;
+    }
+    router.push('/admin/products');
+  };
+
+  const submitProduct = async () => {
+    const submitedProduct = {
       name: productName,
       price: productPrice,
       description: productDescription,
@@ -114,33 +144,16 @@ const EditProduct = ({ product = {}, isNew }) => {
     };
 
     if (isNew) {
-      const isValid = isNew
-        ? await validateNewProduct(newProduct)
-        : '';
-
-      if (isValid === true) {
-        const data = newProductFormData(newProduct);
-        await addNewProduct(data);
-      } else {
-        const errors = isValid;
-        errors.forEach(error => {
-          Notiflix.Notify.failure(error);
-        });
-        return;
-      }
+      createProduct(submitedProduct);
     } else {
-      //========================//
-      //========================//
-      //========================//
-      //========================//
-      //========================//
-      //========================//
-      //========================//
-      //========================//
+      updateProduct(submitedProduct);
     }
+  };
 
-    await closeModal();
-    await clearForm();
+  const deleteProduct = () => {
+    removeProduct(product._id);
+    closeModal();
+    router.push('/admin/products');
   };
 
   const handleSubmit = () => {
@@ -161,6 +174,18 @@ const EditProduct = ({ product = {}, isNew }) => {
         message="Очистити?"
         approveButton="Так"
         approveAction={clearForm}
+        rejectButton="Ні"
+        rejectaction={closeModal}
+      />
+    );
+  };
+
+  const handleDelete = () => {
+    openModal(
+      <ApproveModal
+        message={`Видалити ${product.name}?`}
+        approveButton="Так"
+        approveAction={deleteProduct}
         rejectButton="Ні"
         rejectaction={closeModal}
       />
@@ -202,9 +227,15 @@ const EditProduct = ({ product = {}, isNew }) => {
       />
       <div className={styles.btnWrapper}>
         <MainButton onClick={handleSubmit}>Готово</MainButton>
-        <SecondaryButton onClick={handleClear}>
-          Очистити
-        </SecondaryButton>
+        {isNew ? (
+          <SecondaryButton onClick={handleClear}>
+            Очистити
+          </SecondaryButton>
+        ) : (
+          <SecondaryButton onClick={handleDelete}>
+            Видалити
+          </SecondaryButton>
+        )}
       </div>
     </div>
   );

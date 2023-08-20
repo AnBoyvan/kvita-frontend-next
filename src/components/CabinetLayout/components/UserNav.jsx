@@ -61,7 +61,7 @@ const UserNav = () => {
           <Icon id="comments" />
         </div>
 
-        <div className={styles.navText}>Улюблені</div>
+        <div className={styles.navText}>Відгуки</div>
       </Link>
     </nav>
   );
