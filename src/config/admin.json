@@ -27,5 +27,11 @@
     { "value": "manager", "title": "Менеджер" },
     { "value": "admin", "title": "Адміністратор" },
     { "value": "superuser", "title": "Суперюзер" }
+  ],
+  "statuses": [
+    { "value": "new", "title": "Нове" },
+    { "value": "active", "title": "Активне" },
+    { "value": "closed", "title": "Виконане" },
+    { "value": "rejected", "title": "Відмова" }
   ]
 }

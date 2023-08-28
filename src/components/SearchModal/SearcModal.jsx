@@ -77,7 +77,7 @@ const SearcModal = () => {
           </Form>
         )}
       </Formik>
-      {showList && (
+      {showList && products && (
         <SearchModaResult
           items={products.result}
           search={search}

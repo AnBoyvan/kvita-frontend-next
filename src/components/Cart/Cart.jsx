@@ -12,7 +12,7 @@ import {
 
 import { useAuth } from '@/hooks/useAuth';
 import { ModalContext } from '@/hooks/useModal';
-import { useMutateOrders } from '@/hooks/useOrders';
+import { useOrders } from '@/hooks/useOrders';
 import { getCart, getUser } from '@/redux/auth/auth-selectors';
 import { getLocalCart } from '@/redux/localCart/localCart-selectors';
 
@@ -20,7 +20,7 @@ import styles from './Cart.module.scss';
 
 const Cart = () => {
   const nanoid = customAlphabet('1234567890', 7);
-  const { addNewOrder } = useMutateOrders();
+  const { addNewOrder } = useOrders();
   const { closeModal } = useContext(ModalContext);
 
   const user = useSelector(getUser);

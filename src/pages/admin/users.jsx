@@ -1,5 +1,6 @@
-import { useAuth } from '@/hooks/useAuth';
 import Users from '@/modules/AdminCabinet/Users/Users';
+
+import { useAuth } from '@/hooks/useAuth';
 
 const UsersPage = () => {
   const { managerAccess } = useAuth();

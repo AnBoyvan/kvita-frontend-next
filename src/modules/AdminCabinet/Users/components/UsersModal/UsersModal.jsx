@@ -1,22 +1,26 @@
 import PropTypes from 'prop-types';
+import { useContext, useState } from 'react';
 
-import styles from './UsersModal.module.scss';
 import {
   CloseModalButton,
   MainButton,
   SecondaryButton,
 } from '@/ui/Buttons';
-import { useContext } from 'react';
+
 import { ModalContext } from '@/hooks/useModal';
+import { useUsers } from '@/hooks/useUsers';
 import { formatDate } from '@/utils/helpers/formatDate';
-import admin from '@/config/admin.json';
 import {
   toEnglish,
   toUkrainian,
 } from '@/utils/helpers/categoryTranslate';
 
+import styles from './UsersModal.module.scss';
+import admin from '@/config/admin.json';
+
 const UsersModal = ({ user }) => {
   const { closeModal } = useContext(ModalContext);
+  const { editUser } = useUsers();
 
   const {
     _id,
@@ -29,10 +33,11 @@ const UsersModal = ({ user }) => {
     verify,
   } = user;
 
-  const handleClick = () => {};
+  const [currentRole, setCurrentRole] = useState(role);
+  const [currentDiscount, setCurrentDiscount] = useState(discount);
 
   const handleChange = e => {
-    console.log(toEnglish(e.target.value));
+    setCurrentRole(toEnglish(e.target.value));
   };
 
   const optionsList = admin.roles.map(({ value, title }) => (
@@ -40,6 +45,15 @@ const UsersModal = ({ user }) => {
       {title}
     </option>
   ));
+
+  const handleClick = () => {
+    const editedUser = {
+      _id,
+      data: { role: currentRole, discount: currentDiscount },
+    };
+    editUser(editedUser);
+    closeModal();
+  };
 
   return (
     <div className={styles.modalContainer}>
@@ -64,12 +78,27 @@ const UsersModal = ({ user }) => {
         <div className={styles.userInfoWrapper}>
           <span>Тип:</span>
           <select
-            className={styles.input}
-            value={toUkrainian(role)}
+            className={styles.roles}
+            value={toUkrainian(currentRole)}
             onChange={handleChange}
           >
             {optionsList}
           </select>
+        </div>
+        <div className={styles.userInfoWrapper}>
+          <span>Знижка:</span>
+          <label htmlFor="">
+            <input
+              type="number"
+              value={currentDiscount}
+              min={0}
+              max={100}
+              step={1}
+              className={styles.discount}
+              onChange={e => setCurrentDiscount(e.target.value)}
+            />
+            &nbsp;%
+          </label>
         </div>
       </div>
       <div className={styles.modalBtnWrapper}>
@@ -81,6 +110,17 @@ const UsersModal = ({ user }) => {
   );
 };
 
-UsersModal.propTypes = {};
+UsersModal.propTypes = {
+  user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string,
+    email: PropTypes.string.isRequired,
+    discount: PropTypes.number,
+    role: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    verify: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 
 export default UsersModal;

@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
-import styles from './VerifiedFilter.module.scss';
+import styles from './DeliveryFilter.module.scss';
 
-const VerifiedFilter = ({ current, setCurrent }) => {
-  const verifiedOptons = [
+const DeliveryFilter = ({ current, setCurrent }) => {
+  const deliveryOptons = [
     { value: 'all', title: 'всі' },
-    { value: 'true', title: 'верифіковані' },
-    { value: 'false', title: 'неверифіковані' },
+    { value: 'true', title: 'з доставкою' },
+    { value: 'false', title: 'без доставки' },
   ];
 
-  const list = verifiedOptons.map(({ value, title }, index) => (
+  const list = deliveryOptons.map(({ value, title }, index) => (
     <div key={index} className={styles.wrapper}>
       <input
-        name="verification"
+        name="delivery"
         id={value}
         className={styles.input}
         type="radio"
@@ -30,15 +30,15 @@ const VerifiedFilter = ({ current, setCurrent }) => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Верифікація:</h3>
+      <h3 className={styles.title}>Доставка:</h3>
       <ul className={styles.list}>{list}</ul>
     </div>
   );
 };
 
-VerifiedFilter.propTypes = {
+DeliveryFilter.propTypes = {
   current: PropTypes.string.isRequired,
   setCurrent: PropTypes.func.isRequired,
 };
 
-export default VerifiedFilter;
+export default DeliveryFilter;

@@ -31,8 +31,48 @@
 .userInfoWrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 20px;
   font-size: 14px;
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.roles {
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: $primary-bg-color;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-accent-color;
+  }
+
+  @media #{$tablet} {
+    font-size: 16px;
+  }
+}
+
+.discount {
+  max-width: 70px;
+  border: solid 1px $primary-text-color;
+  border-radius: 10px;
+  background: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-accent-color;
+  }
 
   @media #{$tablet} {
     font-size: 16px;

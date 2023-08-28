@@ -1,4 +1,8 @@
-import { getAllOrders, addOrder } from '@/services/kvita-API/orders';
+import {
+  getAllOrders,
+  addOrder,
+  updateOrder,
+} from '@/services/kvita-API/orders';
 
 import {
   useMutation,
@@ -9,22 +13,18 @@ import Notiflix from 'notiflix';
 import { useAuth } from './useAuth';
 import { useCart } from './useCart';
 
-export const useFetchOrders = () => {
-  const { data: orders, refetch: refetchOrders } = useQuery({
-    queryKey: ['orders'],
-    queryFn: async () => {
-      const data = await getAllOrders();
-      return data;
-    },
-  });
-
-  return { orders, refetchOrders };
-};
-
-export const useMutateOrders = () => {
+export const useOrders = query => {
   const client = useQueryClient();
   const { isLoggedIn } = useAuth();
   const { clearLocalCart, clearUserCart } = useCart();
+
+  const { data: orders, refetch: refetchOrders } = useQuery({
+    queryKey: ['orders', query],
+    queryFn: async () => {
+      const data = await getAllOrders(query);
+      return data;
+    },
+  });
 
   const { mutate: addNewOrder } = useMutation({
     mutationFn: order => addOrder(order),
@@ -38,5 +38,17 @@ export const useMutateOrders = () => {
     },
   });
 
-  return { addNewOrder };
+  const { mutate: editOrder } = useMutation({
+    mutationFn: data => updateOrder(data),
+    onSuccess: response => {
+      Notiflix.Notify.success(
+        `Замовлення №${response.orderNumber} оновлено`
+      );
+      client.invalidateQueries(['orders']);
+    },
+    onError: error =>
+      Notiflix.Notify.failure(`${error.response.data.message}`),
+  });
+
+  return { orders, refetchOrders, addNewOrder, editOrder };
 };

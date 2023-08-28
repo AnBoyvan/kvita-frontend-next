@@ -1,15 +1,11 @@
-import { CabinetLayout } from '@/components';
+import { useAuth } from '@/hooks/useAuth';
+
+import Orders from '@/modules/AdminCabinet/Orders/Orders';
 
 const OrdersPage = () => {
-  return (
-    <>
-      <CabinetLayout>
-        <div>
-          <h1>OrdersPage</h1>
-        </div>
-      </CabinetLayout>
-    </>
-  );
+  const { managerAccess } = useAuth();
+
+  return <>{managerAccess && <Orders />}</>;
 };
 
 export default OrdersPage;

@@ -1,0 +1,63 @@
+@import '../../../styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: $secondary-bg-color;
+}
+
+.label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid $primary-btn-color;
+  width: 20px;
+  height: 20px;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  border-radius: 3px;
+
+  top: 15%;
+  left: 15%;
+  background-color: $primary-btn-color;
+  width: 12px;
+  height: 12px;
+  transform: scale(0);
+  transition: all $fast $primary-func;
+}
+
+.label input:checked ~ .checkmark:after {
+  transform: scale(1);
+}

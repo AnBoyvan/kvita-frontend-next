@@ -24,7 +24,7 @@ const UsersTable = ({
   sortOrder,
   setSortOrder,
 }) => {
-  const { openModal, closeModal } = useContext(ModalContext);
+  const { openModal } = useContext(ModalContext);
 
   const editUser = user => {
     openModal(<UsersModal user={user} />);
@@ -66,8 +66,6 @@ const UsersTable = ({
       </div>
     ));
 
-  //   console.log(sortOrder);
-
   return (
     <div className={styles.table}>
       <div className={styles.headerRow}>
@@ -78,6 +76,23 @@ const UsersTable = ({
   );
 };
 
-UsersTable.propTypes = {};
+UsersTable.propTypes = {
+  users: PropTypes.shape({
+    result: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        discount: PropTypes.number.isRequired,
+        createdAt: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }),
+  sortField: PropTypes.string.isRequired,
+  setSortField: PropTypes.func.isRequired,
+  sortOrder: PropTypes.string.isRequired,
+  setSortOrder: PropTypes.func.isRequired,
+};
 
 export default UsersTable;

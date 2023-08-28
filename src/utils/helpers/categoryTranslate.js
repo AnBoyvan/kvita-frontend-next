@@ -8,6 +8,7 @@ export const toUkrainian = item => {
       return 'Десерти';
     case 'other':
       return 'Смаколики';
+
     case 'customer':
       return 'Клієнт';
     case 'manager':
@@ -16,6 +17,16 @@ export const toUkrainian = item => {
       return 'Адміністратор';
     case 'superuser':
       return 'Суперюзер';
+
+    case 'new':
+      return 'Нове';
+    case 'active':
+      return 'Активне';
+    case 'closed':
+      return 'Виконане';
+    case 'rejected':
+      return 'Відмова';
+
     default:
       return '';
   }
@@ -31,6 +42,7 @@ export const toEnglish = item => {
       return 'dessert';
     case 'Смаколики':
       return 'other';
+
     case 'Клієнт':
       return 'customer';
     case 'Менеджер':
@@ -39,6 +51,15 @@ export const toEnglish = item => {
       return 'admin';
     case 'Суперюзер':
       return 'superuser';
+
+    case 'Нове':
+      return 'new';
+    case 'Активне':
+      return 'active';
+    case 'Виконане':
+      return 'closed';
+    case 'Відмова':
+      return 'rejected';
     default:
       return '';
   }

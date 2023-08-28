@@ -4,9 +4,31 @@ import Link from 'next/link';
 import Icon from '@/ui/Icon/Icon';
 
 import styles from '../CabinetLayout.module.scss';
+import { getAllOrders } from '@/services/kvita-API/orders';
+import { useEffect, useState } from 'react';
 
 const AdminNav = () => {
   const { pathname } = useRouter();
+
+  const [hasNewOrder, setHasNewOrder] = useState(false);
+
+  const checkForNewOrders = async () => {
+    try {
+      const newOrders = await getAllOrders('status=new');
+      setHasNewOrder(newOrders);
+    } catch (error) {
+      console.error('Помилка перевірки нових замовлень:', error);
+    }
+  };
+
+  useEffect(() => {
+    checkForNewOrders();
+
+    const interval = setInterval(checkForNewOrders, 2 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <nav className={styles.adminNav}>
       <Link
@@ -62,6 +84,13 @@ const AdminNav = () => {
         </div>
 
         <div className={styles.navText}>Замовлення</div>
+        <span
+          className={
+            hasNewOrder.length > 0 ? styles.count : styles.zeroCount
+          }
+        >
+          {hasNewOrder.length}
+        </span>
       </Link>
       <Link
         href="/admin/users"

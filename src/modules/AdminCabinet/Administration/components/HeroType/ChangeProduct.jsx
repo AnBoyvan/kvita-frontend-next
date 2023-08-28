@@ -76,7 +76,7 @@ const ChangeProduct = () => {
         <input
           type="text"
           value={search}
-          className={styles.modalSearchInput}
+          className={styles.searchInput}
           onChange={e => setSearch(e.target.value)}
           onFocus={() => setIsOpen(true)}
           onBlur={() => {
