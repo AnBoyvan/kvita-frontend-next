@@ -10,6 +10,7 @@ import Meta from './Meta/Meta';
 import Modal from './Modal/Modal';
 import ProductCard from './ProductCard/ProductCard';
 import SearcModal from './SearchModal/SearcModal';
+import UserCabinetContainer from './UserCabinetContainer/UserCabinetContainer';
 
 export {
   AdminCabinetContainer,
@@ -24,4 +25,5 @@ export {
   Modal,
   ProductCard,
   SearcModal,
+  UserCabinetContainer,
 };

@@ -6,7 +6,9 @@ const phoneRegexp = /^\+380\d{9}$/;
 const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export const registerSchema = Yup.object().shape({
-  name: Yup.string().required('Вкажіть ім’я').max(20, 'Не більше 20 символів'),
+  name: Yup.string()
+    .required('Вкажіть ім’я')
+    .max(20, 'Не більше 20 символів'),
   phone: Yup.string()
     .required('Вкажіть телефон')
     .matches(phoneRegexp, 'Вкажіть номер в форматі: +380ХХХХХХХХХ.'),
@@ -43,4 +45,14 @@ export const passwordChangeSchema = Yup.object().shape({
   confirmPassword: Yup.string()
     .required('Вкажіть пароль')
     .oneOf([Yup.ref('password'), null], 'Паролі не співпадають'),
+});
+
+export const updateByUserShema = Yup.object().shape({
+  name: Yup.string()
+    .required('Вкажіть ім’я')
+    .max(20, 'Не більше 20 символів'),
+  phone: Yup.string().matches(
+    phoneRegexp,
+    'Вкажіть номер в форматі: +380ХХХХХХХХХ.'
+  ),
 });

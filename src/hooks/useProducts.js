@@ -3,6 +3,7 @@ import {
   deleteGalleryImages,
   deleteProduct,
   getAllProducts,
+  getFavoritesProducts,
   updateFavorites,
   updateProduct,
 } from '@/services/kvita-API/products';
@@ -22,7 +23,15 @@ export const useFetchProducts = query => {
     },
   });
 
-  return { products, refetchProducts };
+  const { data: favoriteProducts } = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => {
+      const data = await getFavoritesProducts();
+      return data;
+    },
+  });
+
+  return { products, refetchProducts, favoriteProducts };
 };
 
 export const useMutateProducts = () => {

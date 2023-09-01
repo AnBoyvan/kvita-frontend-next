@@ -10,10 +10,10 @@ export const getProductsForMain = async () => {
   return response.data;
 };
 
-// export const getFavoritesProducts = async () => {
-//   const response = await instance.get('/products/favorite');
-//   return response.data;
-// };
+export const getFavoritesProducts = async () => {
+  const response = await instance.get('/products/favorite');
+  return response.data;
+};
 
 export const getProductById = async _id => {
   const response = await instance.get(`/products/${_id}`);

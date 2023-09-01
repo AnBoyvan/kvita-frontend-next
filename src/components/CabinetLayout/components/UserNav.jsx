@@ -49,20 +49,6 @@ const UserNav = () => {
 
         <div className={styles.navText}>Улюблені</div>
       </Link>
-      <Link
-        href="/cabinet/my-reviews"
-        className={
-          pathname === '/cabinet/my-reviews'
-            ? `${styles.navLink} ${styles.active}`
-            : styles.navLink
-        }
-      >
-        <div className={styles.navIcon}>
-          <Icon id="comments" />
-        </div>
-
-        <div className={styles.navText}>Відгуки</div>
-      </Link>
     </nav>
   );
 };

@@ -1,13 +1,12 @@
-import { CabinetLayout } from "@/components";
+import { UserCabinetContainer } from '@/components';
+import Favorites from '@/modules/UserCabinet/Favorites/Favorites';
 
 const FavoritesPage = () => {
   return (
     <>
-      <CabinetLayout>
-        <div>
-          <h1>FavoritesPage</h1>
-        </div>
-      </CabinetLayout>
+      <UserCabinetContainer title="Улюблені">
+        <Favorites />
+      </UserCabinetContainer>
     </>
   );
 };

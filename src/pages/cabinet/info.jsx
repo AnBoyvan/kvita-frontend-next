@@ -1,13 +1,12 @@
-import { CabinetLayout } from '@/components';
+import { UserCabinetContainer } from '@/components';
+import UserInfo from '@/modules/UserCabinet/UserInfo/UserInfo';
 
 const InfoPage = () => {
   return (
     <>
-      <CabinetLayout>
-        <div>
-          <h1>InfoPage</h1>
-        </div>
-      </CabinetLayout>
+      <UserCabinetContainer title="Особиста інформація">
+        <UserInfo />
+      </UserCabinetContainer>
     </>
   );
 };

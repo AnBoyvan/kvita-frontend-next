@@ -102,7 +102,7 @@ OrdersTable.propTypes = {
       deliveryAdress: PropTypes.string,
       createdAt: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
   sortField: PropTypes.string.isRequired,
   setSortField: PropTypes.func.isRequired,
   sortOrder: PropTypes.string.isRequired,
