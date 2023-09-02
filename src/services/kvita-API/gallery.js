@@ -11,11 +11,6 @@ export const getAllGalleryImages = async ({
   return response.data.result;
 };
 
-// export const getGalleryImageById = async _id => {
-//   const response = await instance.get(`/pictures/${_id}`);
-//   return response.data;
-// };
-
 export const addGalleryImage = async data => {
   const response = await instance.post('/pictures', data, {
     headers: {

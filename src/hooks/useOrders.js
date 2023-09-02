@@ -2,6 +2,7 @@ import {
   getAllOrders,
   addOrder,
   updateOrder,
+  getUserOrders,
 } from '@/services/kvita-API/orders';
 
 import {
@@ -22,6 +23,14 @@ export const useOrders = query => {
     queryKey: ['orders', query],
     queryFn: async () => {
       const data = await getAllOrders(query);
+      return data;
+    },
+  });
+
+  const { data: userOrders } = useQuery({
+    queryKey: ['orders'],
+    queryFn: async () => {
+      const data = await getUserOrders();
       return data;
     },
   });
@@ -50,5 +59,11 @@ export const useOrders = query => {
       Notiflix.Notify.failure(`${error.response.data.message}`),
   });
 
-  return { orders, refetchOrders, addNewOrder, editOrder };
+  return {
+    orders,
+    refetchOrders,
+    userOrders,
+    addNewOrder,
+    editOrder,
+  };
 };

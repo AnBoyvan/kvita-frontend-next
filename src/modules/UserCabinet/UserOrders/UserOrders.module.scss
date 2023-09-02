@@ -1,0 +1,153 @@
+@import '../../../styles/variables.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media #{$tablet} {
+    gap: 40px;
+  }
+
+  @media #{$laptop} {
+    gap: 50px;
+  }
+}
+
+.order {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-bg-color;
+}
+
+.orderHead {
+  position: relative;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media #{$laptop} {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 40px;
+  }
+}
+
+.orderNumber {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status {
+  font-weight: 500;
+}
+
+.orderTotal {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.shortList {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.shortListImg {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.fullOrder {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.productsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid $placeholder-color;
+
+  @media #{$laptop} {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.nameWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.productName {
+  color: $primary-text-color;
+  transition: all $fast $primary-func;
+
+  &:hover {
+    color: $primary-accent-color;
+  }
+}
+
+.countWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 70px;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media #{$laptop} {
+    width: 40%;
+  }
+}
+
+.countItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.countItemNumber {
+  font-weight: 500;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  @media #{$laptop} {
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.openBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}

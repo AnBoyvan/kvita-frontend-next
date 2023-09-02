@@ -1,13 +1,14 @@
-import { CabinetLayout } from '@/components';
+import { UserCabinetContainer } from '@/components';
+import UserOrders from '@/modules/UserCabinet/UserOrders/UserOrders';
 
 const MyOrdersPage = () => {
   return (
     <>
-      <CabinetLayout>
-        <div>
-          <h1>MyOrdersPage</h1>
-        </div>
-      </CabinetLayout>
+      <>
+        <UserCabinetContainer title="Замовлення">
+          <UserOrders />
+        </UserCabinetContainer>
+      </>
     </>
   );
 };

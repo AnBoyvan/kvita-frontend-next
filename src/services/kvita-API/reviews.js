@@ -9,11 +9,6 @@ export const getAllReviews = async data => {
   return response.data;
 };
 
-// export const getReviewById = async _id => {
-//   const response = await instance.get(`/reviews/favorite/${_id}`);
-//   return response.data;
-// };
-
 export const addReview = async data => {
   const response = await instance.post('/reviews', data);
   return response.data;

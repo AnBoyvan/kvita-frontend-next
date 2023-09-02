@@ -38,34 +38,10 @@ export const updateProduct = async ({ _id, data }) => {
   return response.data;
 };
 
-// export const updateProductInfo = async data => {
-//   const response = await instance.patch(
-//     `/products/${data._id}/info`,
-//     data
-//   );
-//   return response.data;
-// };
-
-// export const updateProductImage = async data => {
-//   const response = await instance.patch(
-//     `/products/${data._id}/image`,
-//     data
-//   );
-//   return response.data;
-// };
-
 export const updateFavorites = async _id => {
   const response = await instance.patch(`/products/${_id}/favorite`);
   return response.data;
 };
-
-// export const addGalleryImages = async data => {
-//   const response = await instance.patch(
-//     `/products/${data._id}/gallery`,
-//     data
-//   );
-//   return response.data;
-// };
 
 export const deleteGalleryImages = async data => {
   const { _id, imgURL } = data;

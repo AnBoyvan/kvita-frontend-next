@@ -6,13 +6,14 @@ import styles from './Buttons.module.scss';
 import Icon from '../Icon/Icon';
 
 const CartButton = ({ product, quantity }) => {
-  const { _id, name, price } = product;
+  const { _id, name, price, imageURL } = product;
   const { addToCart } = useCart();
 
   const addProductToCart = () => {
     const addedProduct = {
       productId: _id,
       productName: name,
+      productImage: imageURL,
       quantity: quantity || 1,
       price,
       sum: price * 1,

@@ -25,6 +25,7 @@ const CartItem = ({ item }) => {
     const updatedItem = {
       productId,
       productName,
+      productImage: product.imageURL,
       quantity: newQuantity,
       price: product.price,
       sum: newSum,
