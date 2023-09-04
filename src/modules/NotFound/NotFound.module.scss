@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.imgWrapper {
+  position: relative;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 5vw;
+  font-family: $cursive-font;
+  color: $error-color;
+}

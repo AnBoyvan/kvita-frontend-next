@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
-import { Container } from '@/components';
+import { Container, Meta } from '@/components';
 import { MainButton } from '@/ui/Buttons';
 import { ProductInfo, Reviews } from '@/modules/Product/components';
 
@@ -23,8 +23,16 @@ export const getServerSideProps = async context => {
 
 const SingleProductPage = ({ product }) => {
   const router = useRouter();
+
   return (
     <>
+      <Meta
+        title={product.name}
+        descr={product.description}
+        page={`products/${product._id}`}
+        image={product.imageURL}
+        robots="index, follow"
+      />
       <Container>
         <div className={styles.titleWrapper}>
           <h1 className={styles.pageTitle}>{product.name}</h1>
@@ -42,6 +50,8 @@ SingleProductPage.propTypes = {
   product: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    imageURL: PropTypes.string.isRequired,
   }).isRequired,
 };
 

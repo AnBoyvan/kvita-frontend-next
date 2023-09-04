@@ -3,7 +3,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { useState } from 'react';
 
 const QueryProvider = ({ children, props }) => {
@@ -12,7 +11,6 @@ const QueryProvider = ({ children, props }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={props.dehydratedState}>{children}</Hydrate>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 };

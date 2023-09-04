@@ -1,4 +1,4 @@
-import { Container } from '@/components';
+import { Container, Meta } from '@/components';
 import {
   Categories,
   ProductsList,
@@ -10,6 +10,11 @@ import styles from '@/modules/Products/Products.module.scss';
 const ProductsPage = () => {
   return (
     <>
+      <Meta
+        title="Наша продукція"
+        page="products"
+        robots="index, follow"
+      />
       <Container>
         <h1 className={styles.pageTitle}>НАША ПРОДУКЦІЯ</h1>
         <SearchBar />

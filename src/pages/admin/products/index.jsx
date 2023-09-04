@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { AdminCabinetContainer } from '@/components';
+import { AdminCabinetContainer, Meta } from '@/components';
 import { CabinetSearch, CategoryFilter } from '@/ui/Inputs';
 import ProductsTable from '@/modules/AdminCabinet/Products/components/ProductsTable/ProductsTable';
 
@@ -47,6 +47,7 @@ const ProductsPage = () => {
 
   return (
     <>
+      <Meta title="Продукція" page="admin/products" />
       <AdminCabinetContainer title="Продукція">
         <div className={styles.filter}>
           <CabinetSearch search={search} setSearch={setSearch} />

@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-import { AdminCabinetContainer, EditProduct } from '@/components';
+import {
+  AdminCabinetContainer,
+  EditProduct,
+  Meta,
+} from '@/components';
 import AddGalleryImage from '@/modules/AdminCabinet/Create/AddGalleryImage/AddGalleryImage';
 
 import styles from '@/modules/AdminCabinet/Create/Create.module.scss';
@@ -10,6 +14,7 @@ const CreatePage = () => {
 
   return (
     <>
+      <Meta title="Нова позиція" page="admin/create" />
       <AdminCabinetContainer title="Нова позиція">
         <div className={styles.switchWrapper}>
           <button

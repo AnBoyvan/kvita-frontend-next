@@ -29,7 +29,7 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <Meta title="KVITA" />
+      <Meta />
       <Hero />
       <Container>
         <Category title="Торти" products={pie} category="pie" />

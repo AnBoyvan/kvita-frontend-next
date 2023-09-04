@@ -153,7 +153,7 @@ const UserOrdersItem = ({ order }) => {
 
 UserOrdersItem.propTypes = {
   order: PropTypes.shape({
-    orderNumber: PropTypes.number.isRequired,
+    orderNumber: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     total: PropTypes.number.isRequired,

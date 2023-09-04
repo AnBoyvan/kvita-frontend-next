@@ -1,11 +1,13 @@
 import { ThemeProvider } from 'next-themes';
-import { ModalProvider } from '@/hooks/useModal';
 
 import {
   AuthProvider,
   QueryProvider,
   StoreProvider,
 } from './components';
+
+import { ModalProvider } from '@/hooks/useModal';
+import { LoaderProvider } from '@/hooks/useLoader';
 
 const Providers = ({ children, props }) => {
   return (
@@ -14,7 +16,9 @@ const Providers = ({ children, props }) => {
         <StoreProvider>
           <ThemeProvider attribute="class" storageKey="theme">
             <AuthProvider>
-              <ModalProvider>{children}</ModalProvider>
+              <ModalProvider>
+                <LoaderProvider>{children}</LoaderProvider>
+              </ModalProvider>
             </AuthProvider>
           </ThemeProvider>
         </StoreProvider>
