@@ -8,11 +8,11 @@ const Address = () => {
   return (
     <div className={styles.container}>
       <Logo
-        styles={{
-          display: 'flex',
-          flexDirection: 'row',
-          gap: 10,
-        }}
+      // styles={{
+      //   display: 'flex',
+      //   flexDirection: 'row',
+      //   gap: 10,
+      // }}
       />
       <Link href="/about" className={styles.name}>
         Кондитерська студія &quot;КВіТа&quot;

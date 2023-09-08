@@ -1,5 +1,5 @@
 {
-  "hero": "product",
+  "hero": "hero",
   "slogan": "Для Вас ми зробимо все - від цукерки до торта",
   "heroTypes": [
     {
@@ -17,21 +17,57 @@
   ],
   "minOrder": 300,
   "categories": [
-    { "value": "pie", "title": "Торти" },
-    { "value": "cake", "title": "Солодощі" },
-    { "value": "dessert", "title": "Десерти" },
-    { "value": "other", "title": "Смаколики" }
+    {
+      "value": "pie",
+      "title": "Торти"
+    },
+    {
+      "value": "cake",
+      "title": "Солодощі"
+    },
+    {
+      "value": "dessert",
+      "title": "Десерти"
+    },
+    {
+      "value": "other",
+      "title": "Смаколики"
+    }
   ],
   "roles": [
-    { "value": "customer", "title": "Клієнт" },
-    { "value": "manager", "title": "Менеджер" },
-    { "value": "admin", "title": "Адміністратор" },
-    { "value": "superuser", "title": "Суперюзер" }
+    {
+      "value": "customer",
+      "title": "Клієнт"
+    },
+    {
+      "value": "manager",
+      "title": "Менеджер"
+    },
+    {
+      "value": "admin",
+      "title": "Адміністратор"
+    },
+    {
+      "value": "superuser",
+      "title": "Суперюзер"
+    }
   ],
   "statuses": [
-    { "value": "new", "title": "Нове" },
-    { "value": "active", "title": "Активне" },
-    { "value": "closed", "title": "Виконане" },
-    { "value": "rejected", "title": "Відмова" }
+    {
+      "value": "new",
+      "title": "Нове"
+    },
+    {
+      "value": "active",
+      "title": "Активне"
+    },
+    {
+      "value": "closed",
+      "title": "Виконане"
+    },
+    {
+      "value": "rejected",
+      "title": "Відмова"
+    }
   ]
 }

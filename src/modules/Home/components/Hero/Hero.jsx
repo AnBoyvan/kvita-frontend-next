@@ -6,19 +6,16 @@ import admin from '@/config/admin.json';
 import announcement from '@/config/announcement.json';
 import newProduct from '@/config/newProduct.json';
 import heroImg from '/public/images/heroImg.png';
-import name from '/public/images/logo-name.png';
+import Name from '@/ui/Logo/Name';
 
 const MainHero = () => {
   return (
     <>
       <div className={styles.heroWrapper}>
         <h1 className={styles.heroTitle}>Кондитерська студія</h1>
-        <Image
-          src={name}
-          alt="name"
-          className={styles.heroName}
-          loading="lazy"
-        />
+        <div className={styles.heroName}>
+          <Name />
+        </div>
         <p className={styles.heroSlogan}>{admin.slogan}</p>
       </div>
 

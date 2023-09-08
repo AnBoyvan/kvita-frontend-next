@@ -1,19 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import logo from '/public/images/logo-icon.png';
-import name from '/public/images/logo-name.png';
+import Name from './Name';
 
-const Logo = ({ styles }) => {
+import styles from './Logo.module.scss';
+import logo from '/public/images/logo-icon.png';
+
+const Logo = () => {
   return (
-    <Link href="/" style={styles}>
+    <Link href="/" className={styles.wrapper}>
       <Image src={logo} alt="logo" width="30" />
-      <Image
-        src={name}
-        alt="name"
-        width="70"
-        style={{ marginLeft: 10 }}
-      />
+      <div className={styles.name}>
+        <Name />
+      </div>
     </Link>
   );
 };
