@@ -12,6 +12,7 @@ const Meta = ({ title, descr, page, robots, refresh, image }) => {
     <>
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
+
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
