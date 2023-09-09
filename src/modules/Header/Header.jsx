@@ -52,13 +52,7 @@ const Header = () => {
 
   return (
     <header className={styles.container}>
-      <Logo
-        styles={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}
-      />
+      <Logo />
       <HeaderNav />
       <div className={styles.btnWrapper}>
         <button
