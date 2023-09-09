@@ -4,9 +4,12 @@ import Link from 'next/link';
 
 import { CartButton, LikeButton } from '@/ui/Buttons';
 
+import { useAuth } from '@/hooks/useAuth';
+
 import styles from './ProductCard.module.scss';
 
 const ProductCard = ({ product }) => {
+  const { isLoggedIn } = useAuth();
   const { _id, name, imageURL, price, favorite } = product;
   return (
     <li className={styles.card}>
@@ -31,9 +34,12 @@ const ProductCard = ({ product }) => {
           <CartButton product={product} />
         </div>
       </div>
-      <div className={styles.like}>
-        <LikeButton id={_id} likes={favorite} />
-      </div>
+
+      {isLoggedIn && (
+        <div className={styles.like}>
+          <LikeButton id={_id} likes={favorite} />
+        </div>
+      )}
     </li>
   );
 };

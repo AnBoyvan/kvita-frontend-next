@@ -162,11 +162,6 @@ export const update = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await api.updateByUser(data);
-      Notiflix.Report.success(
-        '',
-        `Особисту інформацію оновлено`,
-        'Ok'
-      );
       return response.data;
     } catch (error) {
       Notiflix.Report.failure(
