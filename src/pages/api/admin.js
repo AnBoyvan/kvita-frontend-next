@@ -22,8 +22,10 @@ export default async function handler(req, res) {
       .status(200)
       .json({ message: 'Дані оновлено успішно.' });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ error: 'Помилка при оновленні даних.' });
+    return error;
+    // .status(500)
+    // .json({ error: 'Помилка при оновленні даних.' });
+
+    // .json({ error: 'Помилка при оновленні даних.' });
   }
 }
