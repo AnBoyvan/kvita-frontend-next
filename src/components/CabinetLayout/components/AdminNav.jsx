@@ -31,7 +31,7 @@ const AdminNav = () => {
 
   return (
     <nav className={styles.adminNav}>
-      <Link
+      {/* <Link
         href="/admin/administrating"
         className={
           pathname === '/admin/administrating'
@@ -43,7 +43,7 @@ const AdminNav = () => {
           <Icon id="dashboard" />
         </div>
         <div className={styles.navText}>Адміністратор</div>
-      </Link>
+      </Link> */}
       <Link
         href="/admin/create"
         className={

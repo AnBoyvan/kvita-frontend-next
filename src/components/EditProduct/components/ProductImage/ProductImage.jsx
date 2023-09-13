@@ -5,13 +5,24 @@ import Icon from '@/ui/Icon/Icon';
 
 import styles from './ProductImage.module.scss';
 
-const ProductImage = ({ image, setImageURL, setImage, isNew }) => {
+const ProductImage = ({
+  image,
+  setImageURL,
+  setImage,
+  addedToGallery,
+  setAddedToGallery,
+  newImages,
+  setNewImages,
+  isNew,
+}) => {
   const handleImageChange = e => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       const imageUrl = URL.createObjectURL(selectedFile);
       setImage(selectedFile);
       setImageURL(imageUrl);
+      setNewImages([...newImages, imageUrl]);
+      setAddedToGallery([...addedToGallery, selectedFile]);
     }
   };
 

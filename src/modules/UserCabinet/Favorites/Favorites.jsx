@@ -1,11 +1,11 @@
 import FavoriteItem from './FavoriteItem';
 
-import { useFetchProducts } from '@/hooks/useProducts';
+import { useFavoriteProducts } from '@/hooks/useProducts';
 
 import styles from './Favorites.module.scss';
 
 const Favorites = () => {
-  const { favoriteProducts } = useFetchProducts();
+  const { favoriteProducts } = useFavoriteProducts();
 
   const productList =
     favoriteProducts &&

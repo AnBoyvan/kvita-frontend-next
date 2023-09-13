@@ -198,6 +198,10 @@ const EditProduct = ({ product = {}, isNew }) => {
         image={productImageURL}
         setImage={setProductImage}
         setImageURL={setProductImageURL}
+        newImages={newImages}
+        setNewImages={setNewImages}
+        addedToGallery={addedToGallery}
+        setAddedToGallery={setAddedToGallery}
         isNew={isNew}
       />
       <ProductGallery

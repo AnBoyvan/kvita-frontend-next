@@ -7,7 +7,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    const filePath = path.join(process.cwd(), 'tmp', 'admin.json');
+    const filePath = path.join(
+      process.cwd(),
+      'src',
+      'config',
+      'admin.json'
+    );
 
     const newData = req.body;
 
@@ -17,7 +22,6 @@ export default async function handler(req, res) {
       .status(200)
       .json({ message: 'Дані оновлено успішно.' });
   } catch (error) {
-    console.error(error);
     return res
       .status(500)
       .json({ error: 'Помилка при оновленні даних.' });

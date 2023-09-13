@@ -23,6 +23,10 @@ export const useFetchProducts = query => {
     },
   });
 
+  return { products, refetchProducts };
+};
+
+export const useFavoriteProducts = () => {
   const { data: favoriteProducts } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
@@ -31,7 +35,7 @@ export const useFetchProducts = query => {
     },
   });
 
-  return { products, refetchProducts, favoriteProducts };
+  return { favoriteProducts };
 };
 
 export const useMutateProducts = () => {

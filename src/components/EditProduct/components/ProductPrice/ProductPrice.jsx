@@ -13,7 +13,7 @@ const ProductPrice = ({ price, setPrice }) => {
         min="0"
         required
         className={styles.input}
-        onChange={e => setPrice(e.target.value)}
+        onChange={e => setPrice(Number(e.target.value))}
       />
       <span className={styles.currency}>ГРН</span>
     </EditContainer>
