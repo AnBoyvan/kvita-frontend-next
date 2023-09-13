@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Продукція",
+    "link": "/products"
+  },
+  {
+    "title": "На замовлення",
+    "link": "/ordering"
+  },
+  {
+    "title": "Галерея",
+    "link": "/gallery"
+  },
+  {
+    "title": "Про нас",
+    "link": "/about"
+  }
+]
